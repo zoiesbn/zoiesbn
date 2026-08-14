@@ -6,7 +6,7 @@ A responsive product-design portfolio for **Zoha Sobhani**, built with Jekyll, s
 
 After GitHub Pages is enabled for this repository, the portfolio is published at:
 
-**https://zoiesbn.github.io/zoiesbn/**
+**https://zoies.ir/**
 
 ## Featured projects
 
@@ -58,7 +58,7 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Open `http://127.0.0.1:4000/zoiesbn/`.
+Open `http://127.0.0.1:4000/`.
 
 For a production-equivalent build:
 
@@ -99,4 +99,3 @@ In the repository settings, set **Settings → Pages → Build and deployment �
 
 - [LinkedIn](https://www.linkedin.com/in/zoha-sobhani-773103177/)
 - [Email](mailto:zohasobhani39@gmail.com)
-

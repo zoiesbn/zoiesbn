@@ -1,8 +1,8 @@
 title: Zoha Sobhani
 tagline: Product Designer
 description: Product design portfolio featuring user-centered mobile applications, responsive dashboards, developer tools, and telecommunications products.
-url: https://zoiesbn.github.io
-baseurl: /zoiesbn
+url: https://zoies.ir
+baseurl: ""
 repository: zoiesbn/zoiesbn
 lang: en
 timezone: Asia/Tehran
@@ -35,4 +35,3 @@ exclude:
 
 keep_files:
   - .git
-
