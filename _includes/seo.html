@@ -1,0 +1,19 @@
+{% seo %}
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:locale" content="en_US">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{% if page.project %}CreativeWork{% else %}Person{% endif %}",
+  "name": {{ page.title | default: site.title | jsonify }},
+  "description": {{ page.description | default: site.description | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }}{% if page.project %},
+  "creator": { "@type": "Person", "name": "Zoha Sobhani" },
+  "image": {{ page.image | absolute_url | jsonify }}{% else %},
+  "jobTitle": "Product Designer",
+  "sameAs": ["https://www.linkedin.com/in/zoha-sobhani-773103177/"]{% endif %}
+}
+</script>
+

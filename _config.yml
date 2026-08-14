@@ -1,0 +1,38 @@
+title: Zoha Sobhani
+tagline: Product Designer
+description: Product design portfolio featuring user-centered mobile applications, responsive dashboards, developer tools, and telecommunications products.
+url: https://zoiesbn.github.io
+baseurl: /zoiesbn
+repository: zoiesbn/zoiesbn
+lang: en
+timezone: Asia/Tehran
+
+author:
+  name: Zoha Sobhani
+  email: zohasobhani39@gmail.com
+  url: https://www.linkedin.com/in/zoha-sobhani-773103177/
+
+social:
+  name: Zoha Sobhani
+  links:
+    - https://www.linkedin.com/in/zoha-sobhani-773103177/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/media/QcNhRvrqsczlV0Le1tmblrSIrk.jpg
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+
+keep_files:
+  - .git
+
