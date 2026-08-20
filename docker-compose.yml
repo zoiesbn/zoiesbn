@@ -1,0 +1,16 @@
+services:
+  portfolio:
+    image: jekyll/jekyll:4
+    working_dir: /srv/jekyll
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/srv/jekyll
+      - bundle-cache:/usr/local/bundle
+    command: >
+      sh -c "bundle install &&
+      bundle exec jekyll serve --host 0.0.0.0 --port 4000 --watch --force_polling"
+    init: true
+
+volumes:
+  bundle-cache:
