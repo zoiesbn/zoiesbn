@@ -2,14 +2,14 @@
   order: 1
   title: My Rightel Application
   short_title: My Rightel Application
-  type: Web Design · Application
+  type: Web Design-Application
   year: 2022
   image: /assets/media/QcNhRvrqsczlV0Le1tmblrSIrk.jpg
   alt: My Rightel mobile application screens
   description: A systemic redesign of Rightel's self-service application focused on clarity, speed, trust, and revenue-critical customer journeys.
 
 - slug: restaurant
-  order: 2
+  order: 3
   title: Restaurant Management Dashboard
   short_title: Restaurant Management
   type: Application Design
@@ -19,7 +19,7 @@
   description: A responsive dashboard helping restaurant staff manage orders, menus, discounts, and operational insights efficiently.
 
 - slug: fsa
-  order: 3
+  order: 2
   title: FakeStore API Landing Page
   short_title: Fake Store API Landing Page
   type: Web Design
@@ -41,10 +41,9 @@
 - slug: rightelwebsite
   order: 5
   title: Rightel Website and SIM Purchase
-  short_title: Website and SIM Purchase
+  short_title: Website and Sim Purchase
   type: Web Design
   year: 2022
   image: /assets/media/uip0JlAHL8OBFiKPHnHhy6LmQ8.png
   alt: Rightel website and SIM purchase flow
   description: A navigation and information-architecture redesign connecting Rightel's homepage to clearer product discovery and SIM purchase.
-

@@ -12,6 +12,7 @@ image: /assets/media/QcNhRvrqsczlV0Le1tmblrSIrk.jpg
   {% include seo.html %}
   <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
   <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -20,22 +21,23 @@ image: /assets/media/QcNhRvrqsczlV0Le1tmblrSIrk.jpg
       <a class="brand" href="#home">ZS.</a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation">Menu</button>
       <nav class="nav-links" id="main-nav" aria-label="Main navigation">
-        <a href="#home">Home</a><a href="#projects">Projects</a><a href="#about">About Me</a><a href="#contact">Contact Me</a>
+        <a href="#home">Home</a><a href="#projects">Projects</a><a href="#blog">Blog</a><a href="#aboutme-1">About Me</a><a href="#contact">Contact Me</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
     <section class="hero" id="home">
-      <div class="float-card one" aria-hidden="true"></div><div class="float-card two" aria-hidden="true"></div>
+      <div class="float-card one" aria-hidden="true"></div><div class="float-toggle" aria-hidden="true"></div><div class="float-button" aria-hidden="true">Primary Button</div><div class="float-search" aria-hidden="true"><span></span>Search...</div><div class="float-progress" aria-hidden="true"><span></span></div><div class="float-tags" aria-hidden="true"><span>UX</span><span>UI</span><span>Product</span><span>AI</span></div>
       <div class="hero-content container">
         <h1>Zoha Sobhani</h1>
-        <p class="hero-role">Product Designer</p>
+        <p class="hero-role"><span class="hero-role-title" aria-live="polite">Product Designer</span></p>
         <div class="actions">
           <a class="button" href="#contact">Contact Me</a>
           <a class="button accent" href="assets/media/hUIEC2E1Njxos2cugffzfOihdlY.pdf" target="_blank" rel="noopener">Download my CV</a>
         </div>
         <div class="avatar-orbit" aria-label="Scroll down to know me better">
+          <svg class="orbit-label" viewBox="0 0 320 320" aria-hidden="true"><defs><path id="avatar-orbit-path" d="M160,160 m-140,0 a140,140 0 1,1 280,0 a140,140 0 1,1 -280,0"></path></defs><text><textPath href="#avatar-orbit-path" startOffset="1%">SCROLL DOWN TO KNOW ME BETTER</textPath></text></svg>
           <img src="assets/media/wlkdiqYFSsLxCMtZRmfqgexdrs.png" alt="Illustrated portrait of Zoha Sobhani">
         </div>
       </div>
@@ -47,7 +49,7 @@ image: /assets/media/QcNhRvrqsczlV0Le1tmblrSIrk.jpg
         <div class="project-grid">
           {% assign projects = site.data.projects | sort: 'order' %}
           {% for project in projects %}
-          <a class="project-card reveal" href="{{ '/' | append: project.slug | append: '/' | relative_url }}">
+          <a class="project-card project-{{ project.slug }} reveal" href="{{ '/' | append: project.slug | append: '/' | relative_url }}">
             <div class="project-image"><img src="{{ project.image | relative_url }}" alt="{{ project.alt }}"{% unless forloop.first %} loading="lazy"{% endunless %}></div>
             <div class="project-copy"><p class="eyebrow">{{ project.type }}</p><h3>{{ project.short_title }}</h3></div>
           </a>
@@ -58,7 +60,7 @@ image: /assets/media/QcNhRvrqsczlV0Le1tmblrSIrk.jpg
 
     <section class="section soft">
       <div class="container">
-        <h2 class="section-heading reveal">Kind words from colleagues</h2>
+        <h2 class="section-heading reveal">Kind words from Colleagues</h2>
         <div class="quotes">
           <blockquote class="quote reveal"><p>“Working with Zoha was smooth and fast. Clear communication and great design decisions.”</p><footer><strong>Farshad Roozbahani</strong>Senior Frontend Developer</footer></blockquote>
           <blockquote class="quote reveal"><p>“Zoha made implementation easy. Practical designs and very collaborative.”</p><footer><strong>Mahshid Arab</strong>Frontend Developer</footer></blockquote>
@@ -67,9 +69,42 @@ image: /assets/media/QcNhRvrqsczlV0Le1tmblrSIrk.jpg
       </div>
     </section>
 
-    <section class="section" id="about">
+    <section class="section blog-section" id="blog">
+      <div class="blog-gradient-divider" aria-hidden="true"></div>
+      <div class="container blog-layout">
+        <div class="blog-heading reveal">
+          <h2 class="section-heading">Blog</h2>
+          <h3>Product Design Notes</h3>
+          <p>Thoughtful notes on user journeys, product decisions, and the systems behind clear digital experiences.</p>
+          <a class="blog-all-button" href="blog/">View All Blogs <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="blog-preview-grid">
+          <article class="blog-preview-card reveal">
+            <img src="assets/media/QcNhRvrqsczlV0Le1tmblrSIrk.jpg" alt="My Rightel application screens">
+            <span class="blog-category">Case Study</span>
+            <p class="blog-date">Coming soon</p>
+            <h3>Designing clearer journeys for everyday mobile tasks</h3>
+            <a href="blog/">Read More <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="blog-preview-card reveal">
+            <img src="assets/media/JvdaxUubKuQNfKYHtuIWqJdZRE.png" alt="Restaurant management dashboard">
+            <span class="blog-category">Product Design</span>
+            <p class="blog-date">Coming soon</p>
+            <h3>Making complex operational workflows easier to use</h3>
+            <a href="blog/">Read More <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="aboutme-1">
       <div class="container about-grid">
-        <img class="about-photo reveal" src="assets/media/gwxjvDvL5TCEceLnQQVHGWsjDRQ.jpg" alt="Zoha Sobhani">
+        <div class="about-visual reveal">
+          <img class="about-doodle about-doodle-spark" src="assets/media/doodle-design-spark.svg" alt="" aria-hidden="true">
+          <img class="about-doodle about-doodle-map" src="assets/media/doodle-flow-map.svg" alt="" aria-hidden="true">
+          <img class="about-doodle about-doodle-pencil" src="assets/media/doodle-idea-pencil.svg" alt="" aria-hidden="true">
+          <img class="about-photo" src="assets/media/zoha-portrait-cutout.png" alt="Zoha Sobhani">
+        </div>
         <div class="about-copy reveal">
           <h2 class="section-heading">About Me</h2>
           <p>I’m Zoha, a product designer with a strong interest in creating thoughtful and user-centered experiences. I enjoy working in collaborative teams where ideas can grow through discussion and feedback.</p>
@@ -83,9 +118,9 @@ image: /assets/media/QcNhRvrqsczlV0Le1tmblrSIrk.jpg
   <footer class="footer" id="contact">
     <div class="container">
       <div class="footer-grid">
-        <div><p class="footer-label">Contact me</p><h2>Let’s make something thoughtful.</h2></div>
+        <div><p class="footer-label">Contact me</p></div>
         <div><p><a href="tel:+989358478186">+98 935 847 8186</a></p><p><a href="mailto:zohasobhani39@gmail.com">zohasobhani39@gmail.com</a></p></div>
-        <div><p class="footer-label">Useful links</p><p><a href="assets/media/hUIEC2E1Njxos2cugffzfOihdlY.pdf">My CV</a></p><p><a href="https://www.linkedin.com/in/zoha-sobhani-773103177/" target="_blank" rel="noopener">LinkedIn</a></p></div>
+        <div><p class="footer-label">Useful Links</p><p><a href="assets/media/hUIEC2E1Njxos2cugffzfOihdlY.pdf">My CV</a></p><p class="footer-label">Social</p><p><a href="https://www.linkedin.com/in/zoha-sobhani-773103177/" target="_blank" rel="noopener">Linkedin</a></p></div>
       </div>
       <div class="copyright"><span>Copyright <span data-year>2026</span></span><span>Made by Zoha Sobhani</span></div>
     </div>

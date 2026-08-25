@@ -16,6 +16,19 @@ nav?.addEventListener('click', event => {
   document.body.classList.remove('menu-open');
 });
 
+const roleTitle = document.querySelector('.hero-role-title');
+if (roleTitle && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const roles = ['Product Designer', 'UI Designer', 'UX Designer', 'Visual Designer'];
+  let roleIndex = 0;
+  window.setInterval(() => {
+    roleIndex = (roleIndex + 1) % roles.length;
+    roleTitle.classList.remove('is-changing');
+    void roleTitle.offsetWidth;
+    roleTitle.textContent = roles[roleIndex];
+    roleTitle.classList.add('is-changing');
+  }, 2200);
+}
+
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -40,6 +53,113 @@ if (sections.length && caseLinks.length) {
 }
 
 document.querySelectorAll('[data-year]').forEach(node => node.textContent = new Date().getFullYear());
+
+const restaurantPreviewCards = [...document.querySelectorAll('.restaurant-case .foundation-gallery .media, .restaurant-case .restaurant-visual-directions .media, .restaurant-case .restaurant-diagram, .restaurant-case .restaurant-core-image, .restaurant-case .restaurant-menu-images .media, .restaurant-case .restaurant-dashboard-images .media')];
+if (restaurantPreviewCards.length) {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'restaurant-image-dialog';
+  dialog.innerHTML = '<button type="button" aria-label="Close image preview">×</button><img alt="">';
+  document.body.append(dialog);
+
+  const dialogImage = dialog.querySelector('img');
+  const closeDialog = () => dialog.close();
+  dialog.querySelector('button').addEventListener('click', closeDialog);
+  dialog.addEventListener('click', event => {
+    const bounds = dialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeDialog();
+  });
+
+  restaurantPreviewCards.forEach(card => {
+    const image = card.querySelector('img');
+    if (!image) return;
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `Open image: ${image.alt}`);
+    const openDialog = () => {
+      dialogImage.src = image.currentSrc || image.src;
+      dialogImage.alt = image.alt;
+      dialog.showModal();
+    };
+    card.addEventListener('click', openDialog);
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openDialog();
+      }
+    });
+  });
+}
+
+const mrBoxPreviewCards = [...document.querySelectorAll('.mrbox-case .case-content .media')];
+if (mrBoxPreviewCards.length) {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'mrbox-image-dialog';
+  dialog.innerHTML = '<button type="button" aria-label="Close image preview">×</button><img alt="">';
+  document.body.append(dialog);
+
+  const dialogImage = dialog.querySelector('img');
+  const closeDialog = () => dialog.close();
+  dialog.querySelector('button').addEventListener('click', closeDialog);
+  dialog.addEventListener('click', event => {
+    const bounds = dialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeDialog();
+  });
+
+  mrBoxPreviewCards.forEach(card => {
+    const image = card.querySelector('img');
+    if (!image) return;
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `Open image: ${image.alt}`);
+    const openDialog = () => {
+      dialogImage.src = image.currentSrc || image.src;
+      dialogImage.alt = image.alt;
+      dialog.showModal();
+    };
+    card.addEventListener('click', openDialog);
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openDialog();
+      }
+    });
+  });
+}
+
+const rightelWebsitePreviewCards = [...document.querySelectorAll('.rightelwebsite-case .case-content .media')].filter(card => card.querySelector('img'));
+if (rightelWebsitePreviewCards.length) {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'rightelwebsite-image-dialog';
+  dialog.innerHTML = '<button type="button" aria-label="Close image preview">×</button><img alt="">';
+  document.body.append(dialog);
+
+  const dialogImage = dialog.querySelector('img');
+  const closeDialog = () => dialog.close();
+  dialog.querySelector('button').addEventListener('click', closeDialog);
+  dialog.addEventListener('click', event => {
+    const bounds = dialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeDialog();
+  });
+
+  rightelWebsitePreviewCards.forEach(card => {
+    const image = card.querySelector('img');
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `Open image: ${image.alt}`);
+    const openDialog = () => {
+      dialogImage.src = image.currentSrc || image.src;
+      dialogImage.alt = image.alt;
+      dialog.showModal();
+    };
+    card.addEventListener('click', openDialog);
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openDialog();
+      }
+    });
+  });
+}
 
 const projectCatalog = {{ site.data.projects | jsonify }};
 

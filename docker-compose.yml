@@ -4,9 +4,12 @@ services:
     working_dir: /srv/jekyll
     ports:
       - "4000:4000"
+    environment:
+      BUNDLE_PATH: /usr/local/bundle
     volumes:
       - .:/srv/jekyll
       - bundle-cache:/usr/local/bundle
+      - vendor-cache:/srv/jekyll/vendor
     command: >
       sh -c "bundle install &&
       bundle exec jekyll serve --host 0.0.0.0 --port 4000 --watch --force_polling"
@@ -14,3 +17,4 @@ services:
 
 volumes:
   bundle-cache:
+  vendor-cache:
