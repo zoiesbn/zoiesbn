@@ -16,6 +16,25 @@ nav?.addEventListener('click', event => {
   document.body.classList.remove('menu-open');
 });
 
+const homeNavLinks = [...document.querySelectorAll('.home-page .nav-links a[href^="#"]')];
+const homeNavSections = homeNavLinks
+  .map(link => document.querySelector(link.hash))
+  .filter(Boolean);
+
+if (homeNavLinks.length && homeNavSections.length) {
+  const setActiveHomeLink = sectionId => {
+    homeNavLinks.forEach(link => link.classList.toggle('active', link.hash === `#${sectionId}`));
+  };
+
+  const homeNavObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActiveHomeLink(entry.target.id);
+    });
+  }, { rootMargin: '-35% 0px -55%' });
+
+  homeNavSections.forEach(section => homeNavObserver.observe(section));
+}
+
 const roleTitle = document.querySelector('.hero-role-title');
 if (roleTitle && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const roles = ['Product Designer', 'UI Designer', 'UX Designer', 'Visual Designer'];
