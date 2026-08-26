@@ -59,6 +59,44 @@ const revealObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
 
+const projectCards = [...document.querySelectorAll('.home-page .project-card')];
+const supportsAnimatedCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (projectCards.length && supportsAnimatedCursor) {
+  const cursor = document.createElement('div');
+  cursor.className = 'animated-project-cursor';
+  cursor.setAttribute('aria-hidden', 'true');
+  cursor.innerHTML = `<svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cursor-gradient" x1="14" y1="12" x2="82" y2="84" gradientUnits="userSpaceOnUse"><stop stop-color="#7B67F2"/><stop offset=".48" stop-color="#D6299F"/><stop offset="1" stop-color="#FF9A3D"/></linearGradient></defs><path d="M17 11L78 49L52 54L43 79L17 11Z" fill="url(#cursor-gradient)" stroke="#17151D" stroke-width="3.5" stroke-linejoin="round"/><path d="M27 23L66 48L48 51L41 68L27 23Z" fill="white" fill-opacity=".94"/><path d="M61 61L78 79" stroke="#17151D" stroke-width="6" stroke-linecap="round"/></svg>`;
+  document.body.append(cursor);
+
+  let targetX = -120;
+  let targetY = -120;
+  let cursorX = targetX;
+  let cursorY = targetY;
+
+  const animateCursor = () => {
+    cursorX += (targetX - cursorX) * .22;
+    cursorY += (targetY - cursorY) * .22;
+    cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+    requestAnimationFrame(animateCursor);
+  };
+  animateCursor();
+
+  document.addEventListener('pointermove', event => {
+    targetX = event.clientX - 15;
+    targetY = event.clientY - 14;
+  });
+  projectCards.forEach(card => {
+    card.addEventListener('pointerenter', () => {
+      cursor.classList.add('is-active');
+    });
+    card.addEventListener('pointerleave', () => {
+      cursor.classList.remove('is-active');
+    });
+  });
+}
+
 const sections = [...document.querySelectorAll('.case-content section[id]')];
 const caseLinks = [...document.querySelectorAll('.case-nav a')];
 if (sections.length && caseLinks.length) {
