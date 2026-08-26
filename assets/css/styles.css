@@ -423,7 +423,8 @@ button { font: inherit; }
   .container { width: min(100% - 28px, 1160px); }
   .site-header .container { justify-content: space-between; }
   .brand { position: static; }
-  .menu-toggle { display: block; }
+  .menu-toggle { display: block; position: relative; width: 44px; height: 44px; padding: 0; font-size: 0; }
+  .menu-toggle::before { content: ""; position: absolute; top: 13px; left: 10px; width: 24px; height: 2px; border-radius: 2px; background: #14151d; box-shadow: 0 8px 0 #14151d, 0 16px 0 #14151d; }
   .nav-links { display: flex; position: fixed; z-index: 51; top: 64px; right: 0; left: 0; height: min(360px, calc(100dvh - 64px)); min-height: 0; padding: 28px 24px 32px; background: #fff; box-shadow: 0 18px 40px rgba(25, 25, 35, .08); flex-direction: column; align-items: center; font-size: 1.4rem; opacity: 0; visibility: hidden; pointer-events: none; transform: scaleY(.08); transform-origin: top center; transition: opacity .2s ease, transform .42s cubic-bezier(.2,.8,.2,1), visibility 0s linear .42s; }
   .nav-links.open { opacity: 1; visibility: visible; pointer-events: auto; transform: scaleY(1); transition-delay: 0s; }
   .nav-links a { opacity: 0; }
@@ -432,8 +433,8 @@ button { font: inherit; }
   .nav-links.open a:nth-child(3) { animation-delay: .08s; }
   .nav-links.open a:nth-child(4) { animation-delay: .12s; }
   .nav-links.open a:nth-child(5) { animation-delay: .16s; }
-  .hero { display: block; height: auto; min-height: 850px; padding: 0; }
-  .hero-content { padding: 204px 18px 34px; }
+  .hero { display: block; height: auto; min-height: 770px; padding: 0; }
+  .hero-content { padding: 158px 18px 28px; }
   .hero h1 { font-size: clamp(2.85rem, 13vw, 3.45rem); }
   .hero-role { margin: 7px 0 18px; }
   .hero .actions { gap: 10px; }
@@ -441,15 +442,15 @@ button { font: inherit; }
   .float-button { top: 72px; left: -58px; padding: 10px 18px; font-size: 12px; }
   .float-toggle { top: 76px; right: -38px; width: 78px; height: 34px; }
   .float-toggle::after { top: 4px; right: 4px; width: 26px; height: 26px; }
-  .float-card.one { display: block; top: 535px; left: -42px; width: 115px; height: 76px; opacity: .72; }
+  .float-card.one { display: block; top: 465px; left: -42px; width: 115px; height: 76px; opacity: .72; }
   .float-card::before, .float-card::after { height: 7px; margin: 20px 15px 0; }
   .float-card::after { margin-top: 11px; }
-  .float-search { top: 422px; right: -92px; width: 160px; height: 44px; padding: 0 14px; font-size: 13px; opacity: .7; }
+  .float-search { top: 355px; right: -92px; width: 160px; height: 44px; padding: 0 14px; font-size: 13px; opacity: .7; }
   .float-search span { height: 19px; }
-  .avatar-orbit { width: 245px; margin-top: 68px; }
+  .avatar-orbit { width: 245px; margin-top: 42px; }
   .avatar-orbit img { width: 175px; height: 175px; }
-  .float-progress { top: 730px; bottom: auto; left: -74px; width: 166px; height: 18px; }
-  .float-tags { top: 714px; right: -86px; bottom: auto; gap: 5px; }
+  .float-progress { top: 645px; bottom: auto; left: -74px; width: 166px; height: 18px; }
+  .float-tags { top: 628px; right: -86px; bottom: auto; gap: 5px; }
   .float-tags span { padding: 6px 10px; font-size: 12px; }
   .about-visual { min-height: 445px; max-width: 360px; }
   .about-photo { max-height: 455px; }
