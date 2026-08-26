@@ -158,7 +158,13 @@ button { font: inherit; }
 .about-copy { font-size: clamp(1.15rem, 2vw, 1.45rem); }
 
 .footer { padding: 72px 0 30px; background: #111117; color: #fff; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
+.footer-grid { display: grid; grid-template-columns: repeat(2, minmax(190px, 250px)); justify-content: center; gap: 82px; }
+.footer-contact-column, .footer-links-column { display: grid; align-content: start; }
+.footer-contact-column p, .footer-links-column p { margin: 0; }
+.footer-contact-column .footer-label { margin-bottom: 12px; }
+.footer-contact-column p + p { margin-top: 7px; }
+.footer-links-column .footer-label { margin-bottom: 10px; }
+.footer-links-column .footer-label:not(:first-child) { margin-top: 22px; }
 .footer h2 { margin-top: 0; font-size: clamp(2rem, 4vw, 4rem); letter-spacing: -.06em; }
 .footer-label { color: #8f8f99; text-transform: uppercase; letter-spacing: .1em; font-size: .75rem; }
 .footer a:hover { color: #e454c2; }
@@ -465,6 +471,7 @@ button { font: inherit; }
   .about-doodle-pencil { top: 29%; right: -1%; }
   .section { padding: 78px 0; }
   .project-grid, .footer-grid, .case-meta, .media-grid, .stat-grid { grid-template-columns: 1fr; }
+  .footer-grid { gap: 34px; justify-items: center; text-align: center; }
   .blog-preview-grid { grid-template-columns: 1fr; }
   .blog-preview-card { min-height: 0; }
   .blog-index-card { grid-template-columns: 1fr; gap: 20px; padding: 20px; }
