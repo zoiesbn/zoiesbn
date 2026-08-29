@@ -101,10 +101,15 @@ const sections = [...document.querySelectorAll('.case-content section[id]')];
 const caseLinks = [...document.querySelectorAll('.case-nav a')];
 if (sections.length && caseLinks.length) {
   const sectionObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      caseLinks.forEach(link => link.classList.toggle('active', link.hash === `#${entry.target.id}`));
-    });
+    const visibleEntry = entries
+      .filter(entry => entry.isIntersecting)
+      .sort((a, b) => Math.abs(a.boundingClientRect.top - innerHeight * .25) - Math.abs(b.boundingClientRect.top - innerHeight * .25))[0];
+    if (!visibleEntry) return;
+    const rightelEvidenceSections = ['problem-statement', 'research', 'interview-guide', 'findings'];
+    const activeSectionId = document.body.classList.contains('rightel-case') && rightelEvidenceSections.includes(visibleEntry.target.id)
+      ? 'problem-statement'
+      : visibleEntry.target.id;
+    caseLinks.forEach(link => link.classList.toggle('active', link.hash === `#${activeSectionId}`));
   }, { rootMargin: '-25% 0px -65%' });
   sections.forEach(section => sectionObserver.observe(section));
 }
@@ -214,6 +219,28 @@ if (rightelWebsitePreviewCards.length) {
         event.preventDefault();
         openDialog();
       }
+    });
+  });
+}
+
+const questionLanguageSwitch = document.querySelector('.rightel-language-switch');
+const questionGroups = document.querySelector('.rightel-question-groups');
+if (questionLanguageSwitch && questionGroups) {
+  const languageButtons = [...questionLanguageSwitch.querySelectorAll('[data-question-language]')];
+  const questionVersions = [...questionGroups.querySelectorAll('[data-question-lang]')];
+
+  languageButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const language = button.dataset.questionLanguage;
+      questionGroups.dataset.activeLanguage = language;
+      languageButtons.forEach(item => {
+        const isActive = item === button;
+        item.classList.toggle('active', isActive);
+        item.setAttribute('aria-pressed', String(isActive));
+      });
+      questionVersions.forEach(version => {
+        version.hidden = version.dataset.questionLang !== language;
+      });
     });
   });
 }
