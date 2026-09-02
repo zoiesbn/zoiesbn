@@ -50,7 +50,7 @@ image: /assets/media/zoha-portfolio-social-cover.png?v=20260826
           {% assign projects = site.data.projects | sort: 'order' %}
           {% for project in projects %}
           <a class="project-card project-{{ project.slug }} reveal" href="{{ '/' | append: project.slug | append: '/' | relative_url }}">
-            <div class="project-image"><img src="{{ project.image | relative_url }}" alt="{{ project.alt }}"{% unless forloop.first %} loading="lazy"{% endunless %}>{% if project.order == 1 %}<span class="featured-case-study-badge"><img src="{{ '/assets/media/featured-case-study-medal.png' | relative_url }}" alt="" aria-hidden="true"><strong>Featured case study</strong></span>{% elsif project.order == 2 %}<span class="featured-case-study-badge"><img src="{{ '/assets/media/featured-case-study-shield.png' | relative_url }}" alt="" aria-hidden="true"><strong>Featured case study</strong></span>{% endif %}</div>
+            <div class="project-image"><img src="{{ project.image | relative_url }}" alt="{{ project.alt }}"{% unless forloop.first %} loading="lazy"{% endunless %}>{% if project.order == 1 or project.order == 2 %}<span class="featured-case-study-badge"><img src="{{ '/assets/media/featured-case-study-lightning.svg' | relative_url }}" alt="" aria-hidden="true"><strong><span>Featured</span> case study</strong></span>{% endif %}</div>
             <div class="project-copy"><p class="eyebrow">{{ project.type }}</p><h3>{{ project.short_title }}</h3></div>
           </a>
           {% endfor %}
