@@ -89,7 +89,7 @@ button { font: inherit; }
 .project-image { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #eee; }
 .project-image > img { height: 100%; object-fit: cover; transition: transform .6s; }
 .project-card:hover .project-image > img { transform: scale(1.025); }
-.featured-case-study-badge { position: absolute; top: 28px; right: 30px; display: flex; min-height: 52px; align-items: center; padding: 9px 76px 9px 18px; border: 1px solid rgba(255,255,255,.72); border-radius: 999px; background: rgba(255,255,255,.92); color: #38271f; box-shadow: 0 8px 24px rgba(40,25,18,.18); backdrop-filter: blur(8px); }
+.featured-case-study-badge { position: absolute; top: 28px; right: 30px; display: flex; min-height: 52px; align-items: center; padding: 9px 76px 9px 18px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: rgba(25,22,28,.92); color: #fff; box-shadow: 0 8px 24px rgba(20,16,22,.28); backdrop-filter: blur(8px); }
 .featured-case-study-badge img { position: absolute; top: 50%; right: -22px; width: 100px; height: 100px; object-fit: contain; transform: translateY(-50%); filter: drop-shadow(0 8px 10px rgba(75,38,20,.22)); }
 .featured-case-study-badge strong { font-size: 12px; font-weight: 750; letter-spacing: .01em; white-space: nowrap; }
 .project-copy { padding: 22px 24px 28px; }
