@@ -223,6 +223,40 @@ if (rightelWebsitePreviewCards.length) {
   });
 }
 
+const designSystemPreviewImages = [...document.querySelectorAll('.design-system-case .case-content img')];
+if (designSystemPreviewImages.length) {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'design-system-image-dialog';
+  dialog.innerHTML = '<button type="button" aria-label="Close image preview">×</button><img alt="">';
+  document.body.append(dialog);
+
+  const dialogImage = dialog.querySelector('img');
+  const closeDialog = () => dialog.close();
+  dialog.querySelector('button').addEventListener('click', closeDialog);
+  dialog.addEventListener('click', event => {
+    const bounds = dialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeDialog();
+  });
+
+  designSystemPreviewImages.forEach(image => {
+    image.tabIndex = 0;
+    image.setAttribute('role', 'button');
+    image.setAttribute('aria-label', `Open image: ${image.alt || 'Rightel design-system visual'}`);
+    const openDialog = () => {
+      dialogImage.src = image.currentSrc || image.src;
+      dialogImage.alt = image.alt;
+      dialog.showModal();
+    };
+    image.addEventListener('click', openDialog);
+    image.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openDialog();
+      }
+    });
+  });
+}
+
 const questionLanguageSwitch = document.querySelector('.rightel-language-switch');
 const questionGroups = document.querySelector('.rightel-question-groups');
 if (questionLanguageSwitch && questionGroups) {
@@ -246,6 +280,28 @@ if (questionLanguageSwitch && questionGroups) {
 }
 
 const projectCatalog = {{ site.data.projects | jsonify }};
+
+document.querySelectorAll('[data-document-slider]').forEach(slider => {
+  const viewport = slider.querySelector('[data-document-scroll]');
+  const progress = slider.querySelector('[data-document-progress]');
+  const updateProgress = () => {
+    const scrollable = viewport.scrollHeight - viewport.clientHeight;
+    const ratio = scrollable > 0 ? viewport.scrollTop / scrollable : 0;
+    const thumbSize = Math.max(10, viewport.clientHeight / viewport.scrollHeight * 100);
+    progress.style.height = `${thumbSize}%`;
+    progress.style.top = `${ratio * (100 - thumbSize)}%`;
+  };
+  slider.querySelectorAll('[data-document-direction]').forEach(button => {
+    button.addEventListener('click', () => viewport.scrollBy({
+      top: (button.dataset.documentDirection === 'down' ? 1 : -1) * viewport.clientHeight * .82,
+      behavior: 'smooth'
+    }));
+  });
+  viewport.addEventListener('scroll', updateProgress, { passive: true });
+  viewport.querySelector('img')?.addEventListener('load', updateProgress);
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+});
 
 const caseArticle = document.querySelector('.case-content');
 if (caseArticle) {

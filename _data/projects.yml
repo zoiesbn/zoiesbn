@@ -9,7 +9,7 @@
   description: A systemic redesign of Rightel's self-service application focused on clarity, speed, trust, and revenue-critical customer journeys.
 
 - slug: restaurant
-  order: 3
+  order: 4
   title: Restaurant Management Dashboard
   short_title: Restaurant Management
   type: Application Design
@@ -28,8 +28,18 @@
   alt: Fake Store API website redesign
   description: A developer-experience redesign improving onboarding, API discovery, trust, measurement, and long-term platform scalability.
 
+- slug: design-system
+  order: 3
+  title: Rightel Design System Evolution
+  short_title: Rightel Design System
+  type: Design System
+  year: 2022
+  image: /assets/media/rightel-design-system-hero.png
+  alt: Fragmented interface components becoming a coherent and reusable design system
+  description: Evolving disconnected UI components into a consistent, reusable, and scalable foundation for Rightel's digital products.
+
 - slug: mr.box
-  order: 4
+  order: 5
   title: Mr.Box Delivery Application
   short_title: Mr.Box Delivery Application
   type: Application Design
@@ -39,7 +49,7 @@
   description: A lightweight mobile delivery workflow designed for faster decisions, clearer status visibility, and operational confidence.
 
 - slug: rightelwebsite
-  order: 5
+  order: 6
   title: Rightel Website and SIM Purchase
   short_title: Website and Sim Purchase
   type: Web Design

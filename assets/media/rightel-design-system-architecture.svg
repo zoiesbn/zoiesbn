@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1010" viewBox="0 0 1600 1010" role="img" aria-labelledby="title desc">
+  <title id="title">Rightel design system architecture</title>
+  <desc id="desc">A four-stage flow from foundations to building blocks, component sets, and product patterns.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffafd"/>
+      <stop offset="1" stop-color="#f5f1f5"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8a1d69"/>
+      <stop offset=".55" stop-color="#d6299f"/>
+      <stop offset="1" stop-color="#eb5fbd"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#3d1731" flood-opacity=".10"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="8" refY="6" orient="auto">
+      <path d="M1 1l8 5-8 5" fill="none" stroke="#d6299f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .eyebrow{font:700 18px Arial,sans-serif;letter-spacing:2.8px;fill:#9b2077}.heading{font:700 42px Arial,sans-serif;fill:#211821}.sub{font:400 21px Arial,sans-serif;fill:#645964}.step{font:700 16px Arial,sans-serif;letter-spacing:2px;fill:#a3297d}.card-title{font:700 27px Arial,sans-serif;fill:#211821}.item{font:400 18px Arial,sans-serif;fill:#5f555f}.caption{font:600 17px Arial,sans-serif;fill:#79215e}.tiny{font:700 13px Arial,sans-serif;fill:#fff}.line{stroke:#d6299f;stroke-width:3;stroke-linecap:round}.muted{stroke:#d9cbd5;stroke-width:2}.surface{fill:#fff;stroke:#e8dce4;stroke-width:2}.accent{fill:#d6299f}.plum{fill:#6d1754}.lime{fill:#b7d52e}
+    </style>
+  </defs>
+  <rect width="1600" height="1010" rx="40" fill="url(#bg)"/>
+  <circle cx="1460" cy="80" r="180" fill="#d6299f" opacity=".045"/>
+  <circle cx="80" cy="840" r="210" fill="#8a1d69" opacity=".04"/>
+  <text x="100" y="102" class="eyebrow">SYSTEM ARCHITECTURE</text>
+  <text x="100" y="158" class="heading">From shared rules to consistent experiences</text>
+  <text x="100" y="200" class="sub">Each layer reduces repeated decisions and gives the next layer a reliable foundation.</text>
+
+  <path d="M376 490H449M751 490H824M1126 490H1199" fill="none" stroke="url(#flow)" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="280" width="306" height="580" rx="28" class="surface"/>
+    <rect x="449" y="280" width="302" height="580" rx="28" class="surface"/>
+    <rect x="824" y="280" width="302" height="580" rx="28" class="surface"/>
+    <rect x="1199" y="280" width="331" height="580" rx="28" class="surface"/>
+  </g>
+
+  <g transform="translate(70 280)">
+    <rect width="306" height="8" rx="4" class="plum"/>
+    <text x="28" y="55" class="step">01</text><text x="28" y="94" class="card-title">Foundations</text>
+    <text x="28" y="131" class="item">Shared visual decisions</text>
+    <g transform="translate(28 170)">
+      <circle cx="25" cy="25" r="25" fill="#6d1754"/><circle cx="72" cy="25" r="25" fill="#d6299f"/><circle cx="119" cy="25" r="25" fill="#f3b3dc"/><circle cx="166" cy="25" r="25" fill="#b7d52e"/>
+      <rect y="83" width="196" height="8" rx="4" fill="#211821"/><rect y="105" width="150" height="6" rx="3" fill="#9a8e98"/><rect y="125" width="175" height="6" rx="3" fill="#c8bdc5"/>
+      <g transform="translate(0 167)"><rect width="44" height="44" rx="8" fill="#f7e8f2"/><rect x="60" width="44" height="44" rx="14" fill="#f7e8f2"/><rect x="120" width="44" height="44" rx="22" fill="#f7e8f2"/><path d="M184 8v28M202 2v40" class="line"/></g>
+    </g>
+    <text x="28" y="520" class="caption">Color · Type · Space · Shape</text>
+    <text x="28" y="550" class="caption">Elevation · Icon rules</text>
+  </g>
+
+  <g transform="translate(449 280)">
+    <rect width="302" height="8" rx="4" fill="#a5227e"/>
+    <text x="28" y="55" class="step">02</text><text x="28" y="94" class="card-title">Building blocks</text>
+    <text x="28" y="131" class="item">Reusable component anatomy</text>
+    <g transform="translate(28 172)">
+      <rect width="246" height="72" rx="17" fill="#f7edf4" stroke="#d7c6d2" stroke-width="2"/>
+      <circle cx="38" cy="36" r="13" class="plum"/><rect x="66" y="25" width="108" height="9" rx="4.5" fill="#726772"/><rect x="66" y="42" width="74" height="7" rx="3.5" fill="#b5a9b2"/><circle cx="216" cy="36" r="15" fill="#fff" stroke="#d6299f" stroke-width="3"/>
+      <g transform="translate(0 102)"><rect width="246" height="58" rx="14" fill="#fff" stroke="#b99bab" stroke-width="2"/><rect x="18" y="20" width="94" height="8" rx="4" fill="#9c8d98"/><rect x="197" y="14" width="30" height="30" rx="9" fill="#f2d9e9"/></g>
+      <g transform="translate(0 190)"><rect width="112" height="48" rx="24" class="accent"/><circle cx="25" cy="24" r="8" fill="#fff"/><rect x="44" y="20" width="48" height="8" rx="4" fill="#fff" opacity=".9"/><rect x="134" width="112" height="48" rx="24" fill="#fff" stroke="#d6299f" stroke-width="2"/></g>
+    </g>
+    <text x="28" y="520" class="caption">Container · Label · Icons</text>
+    <text x="28" y="550" class="caption">State layer · Supporting text</text>
+  </g>
+
+  <g transform="translate(824 280)">
+    <rect width="302" height="8" rx="4" class="accent"/>
+    <text x="28" y="55" class="step">03</text><text x="28" y="94" class="card-title">Component sets</text>
+    <text x="28" y="131" class="item">Predictable variants and states</text>
+    <g transform="translate(28 169)">
+      <g><rect width="116" height="48" rx="24" class="accent"/><rect x="130" width="116" height="48" rx="24" fill="#fff" stroke="#d6299f" stroke-width="2"/><rect y="64" width="116" height="48" rx="24" fill="#7b6f78"/><rect x="130" y="64" width="116" height="48" rx="24" fill="#eee8ec"/></g>
+      <g transform="translate(0 144)"><rect width="246" height="62" rx="14" fill="#f4edf2"/><rect x="18" y="17" width="112" height="7" rx="3.5" fill="#9a8f97"/><rect x="18" y="35" width="82" height="8" rx="4" fill="#524952"/><circle cx="215" cy="31" r="12" class="accent"/></g>
+      <g transform="translate(0 233)"><rect width="70" height="38" rx="19" class="plum"/><circle cx="50" cy="19" r="14" fill="#fff"/><circle cx="107" cy="19" r="15" fill="#fff" stroke="#d6299f" stroke-width="4"/><rect x="147" width="99" height="38" rx="19" fill="#f1dce9"/><rect x="164" y="15" width="52" height="8" rx="4" fill="#a6257f"/></g>
+    </g>
+    <text x="28" y="520" class="caption">Size · Style · State · Type</text>
+    <text x="28" y="550" class="caption">Theme · Content configuration</text>
+  </g>
+
+  <g transform="translate(1199 280)">
+    <rect width="331" height="8" rx="4" fill="#eb5fbd"/>
+    <text x="28" y="55" class="step">04</text><text x="28" y="94" class="card-title">Product patterns</text>
+    <text x="28" y="131" class="item">Consistent real-world journeys</text>
+    <g transform="translate(44 158) scale(.88)">
+      <rect width="275" height="300" rx="24" fill="#fbf8fa" stroke="#dfd3db" stroke-width="2"/>
+      <rect x="17" y="18" width="241" height="55" rx="15" fill="#6d1754"/><circle cx="43" cy="45" r="11" fill="#fff"/><rect x="65" y="39" width="75" height="9" rx="4.5" fill="#fff" opacity=".9"/>
+      <rect x="17" y="91" width="115" height="82" rx="16" fill="#fff" stroke="#eadfe6"/><rect x="143" y="91" width="115" height="82" rx="16" fill="#fff" stroke="#eadfe6"/>
+      <circle cx="46" cy="121" r="13" fill="#f2c7e3"/><rect x="69" y="113" width="43" height="7" rx="3.5" fill="#716670"/><rect x="69" y="130" width="32" height="6" rx="3" fill="#bbb0b8"/>
+      <circle cx="172" cy="121" r="13" class="lime"/><rect x="195" y="113" width="43" height="7" rx="3.5" fill="#716670"/><rect x="195" y="130" width="32" height="6" rx="3" fill="#bbb0b8"/>
+      <rect x="17" y="190" width="241" height="52" rx="14" fill="#fff" stroke="#eadfe6"/><rect x="36" y="211" width="113" height="8" rx="4" fill="#887b84"/><rect x="205" y="201" width="35" height="30" rx="9" class="accent"/>
+      <g transform="translate(17 260)"><circle cx="20" cy="12" r="10" class="accent"/><circle cx="83" cy="12" r="10" fill="#d8ccd4"/><circle cx="146" cy="12" r="10" fill="#d8ccd4"/><circle cx="209" cy="12" r="10" fill="#d8ccd4"/></g>
+    </g>
+    <text x="28" y="520" class="caption">Forms · Navigation · Payments</text>
+    <text x="28" y="550" class="caption">Status · Selection · Feedback</text>
+  </g>
+
+  <g transform="translate(100 900)">
+    <rect width="1400" height="66" rx="20" fill="#fff" stroke="#eadfe6" stroke-width="2"/>
+    <rect x="18" y="14" width="38" height="38" rx="12" class="accent"/><path d="M30 33l7 7 12-15" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="76" y="41" class="item">Shared foundations make components easier to build, patterns easier to repeat, and product experiences easier to trust.</text>
+  </g>
+</svg>
