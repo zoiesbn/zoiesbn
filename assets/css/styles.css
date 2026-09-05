@@ -256,6 +256,15 @@ button { font: inherit; }
 .rightel-design-system-image img { display: block; width: 100%; height: auto; }
 .rightel-design-system-image figcaption { padding: 12px 14px; color: #5f5f67; font-size: 13px; line-height: 1.5; }
 .rightel-system-list { columns: 2; column-gap: 32px; }
+.rightel-design-system-link { display: flex; gap: 24px; align-items: center; justify-content: space-between; margin-top: 30px; padding: 22px 24px; border: 1px solid #ead4e4; border-radius: 18px; background: linear-gradient(120deg, #fff7fc, #f7f3fb); color: var(--ink); box-shadow: 0 8px 24px rgba(89,32,72,.08); transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease; }
+.rightel-design-system-link:hover { border-color: #d6299f; box-shadow: 0 14px 30px rgba(89,32,72,.14); transform: translateY(-3px); }
+.rightel-design-system-link span { display: grid; gap: 5px; }
+.rightel-design-system-link small { color: #9b2077; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.rightel-design-system-link strong { font-size: clamp(17px, 2vw, 21px); line-height: 1.2; letter-spacing: -.025em; }
+.rightel-design-system-link em { max-width: 640px; color: #5f5f67; font-size: 14px; font-style: normal; line-height: 1.55; }
+.rightel-design-system-link b { display: grid; width: 46px; height: 46px; flex: 0 0 auto; place-items: center; border-radius: 50%; background: #d6299f; color: #fff; font-size: 23px; font-weight: 500; transition: transform .25s ease; }
+.rightel-design-system-link:hover b { animation: blog-arrow-spin .38s ease-out 1; }
+.rightel-design-system-link:focus-visible { outline: 3px solid rgba(214,41,159,.34); outline-offset: 3px; }
 .restaurant-case .case-hero img { min-height: 0; height: clamp(240px, 35vw, 420px); }
 .restaurant-case .case-title { font-size: 32px; }
 .restaurant-case .case-content > section { margin-bottom: 48px; }
@@ -586,6 +595,8 @@ button { font: inherit; }
   .section { padding: 78px 0; }
   .project-grid, .footer-grid, .case-meta, .media-grid, .stat-grid { grid-template-columns: 1fr; }
   .rightel-snapshot-grid, .rightel-principles-grid, .rightel-question-groups, .rightel-competitor-grid, .rightel-system-story { grid-template-columns: 1fr; }
+  .rightel-design-system-link { gap: 14px; padding: 18px; }
+  .rightel-design-system-link b { width: 40px; height: 40px; }
   .rightel-question-header { grid-template-columns: 1fr; }
   .rightel-language-switch { justify-self: start; }
   .rightel-system-list { columns: 1; }
