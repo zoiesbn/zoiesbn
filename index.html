@@ -10,8 +10,8 @@ image: /assets/media/zoha-portfolio-social-cover.png?v=20260826
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   {% include seo.html %}
-  <link rel="stylesheet" href="{{ '/assets/css/styles.css?v=20260826' | relative_url }}">
-  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css?v=20260914-hero-weight-2' | relative_url }}">
+  <script src="{{ '/assets/js/main.js?v=20260914-zoie-open' | relative_url }}" defer></script>
   <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body class="home-page">
@@ -21,46 +21,64 @@ image: /assets/media/zoha-portfolio-social-cover.png?v=20260826
       <a class="brand" href="#home">ZS.</a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation">Menu</button>
       <nav class="nav-links" id="main-nav" aria-label="Main navigation">
-        <a href="#home">Home</a><a href="#projects">Projects</a><a href="#blog">Blog</a><a href="#aboutme-1">About Me</a><a href="#contact">Contact Me</a>
+        <a href="#home">Home</a><a href="#projects">Works</a><a href="#services">Services</a><a href="#blog">Blog</a><a href="#aboutme-1">About Me</a><a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" id="home">
-      <div class="float-card one" aria-hidden="true"></div><div class="float-toggle" aria-hidden="true"></div><div class="float-button" aria-hidden="true">Primary Button</div><div class="float-search" aria-hidden="true"><span></span>Search...</div><div class="float-progress" aria-hidden="true"><span></span></div><div class="float-tags" aria-hidden="true"><span>UX</span><span>UI</span><span>Product</span><span>AI</span></div>
-      <div class="hero-content container">
-        <h1>Zoha Sobhani</h1>
-        <p class="hero-role"><span class="hero-role-title" aria-live="polite">Product Designer</span></p>
-        <div class="actions">
-          <a class="button" href="#contact">Contact Me</a>
-          <a class="button accent" href="assets/media/hUIEC2E1Njxos2cugffzfOihdlY.pdf" target="_blank" rel="noopener">Download my CV</a>
+    <section class="hero hero-editorial" id="home" aria-labelledby="hero-name">
+      <div class="hero-editorial-content container">
+        <div class="hero-editorial-topline"><span>PRODUCT DESIGN PORTFOLIO</span><span>AVAILABLE FOR NEW PROJECTS <i aria-hidden="true"></i></span></div>
+        <div class="hero-selection">
+          <span class="hero-selection-line top" aria-hidden="true"></span><span class="hero-selection-line right" aria-hidden="true"></span><span class="hero-selection-line bottom" aria-hidden="true"></span><span class="hero-selection-line left" aria-hidden="true"></span>
+          <span class="hero-selection-handle top-left" aria-hidden="true"></span><span class="hero-selection-handle top-right" aria-hidden="true"></span><span class="hero-selection-handle bottom-right" aria-hidden="true"></span><span class="hero-selection-handle bottom-left" aria-hidden="true"></span>
+          <div class="hero-name-wrap"><h1 id="hero-name"><span>ZOHA</span><span>SOBHANI</span></h1></div>
+          <div class="hero-portrait"><img src="{{ '/assets/media/zoha-profile-retouched-v2.png' | relative_url }}" alt="Zoha Sobhani" fetchpriority="high"></div>
+          <span class="hero-drawing-cursor" aria-hidden="true"><svg viewBox="0 0 38 48" fill="none"><path d="M3 2L33 29L20 31L26 44L19 47L13 33L3 40V2Z" fill="#F3FF75" stroke="#121212" stroke-width="2" stroke-linejoin="round"/></svg></span>
         </div>
-        <div class="avatar-orbit" aria-label="Scroll down to know me better">
-          <svg class="orbit-label" viewBox="0 0 320 320" aria-hidden="true"><defs><path id="avatar-orbit-path" d="M160,160 m-140,0 a140,140 0 1,1 280,0 a140,140 0 1,1 -280,0"></path></defs><text><textPath href="#avatar-orbit-path" startOffset="1%">SCROLL DOWN TO KNOW ME BETTER</textPath></text></svg>
-          <img src="assets/media/wlkdiqYFSsLxCMtZRmfqgexdrs.png" alt="Illustrated portrait of Zoha Sobhani">
+        <div class="hero-editorial-bottomline">
+          <div><p class="hero-role"><span class="hero-role-title" aria-live="polite">Product Designer</span></p><p class="hero-intro">Thoughtful digital experiences, shaped by curiosity and clarity.</p></div>
+          <div class="actions"><a class="button" href="#contact">Contact Me</a><a class="button accent" href="assets/media/hUIEC2E1Njxos2cugffzfOihdlY.pdf" target="_blank" rel="noopener">Download my CV <span aria-hidden="true">↗</span></a></div>
         </div>
+        <a class="hero-scroll" href="#projects">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a>
       </div>
     </section>
 
-    <section class="section" id="projects">
+    <section class="section selected-works-section" id="projects">
       <div class="container">
-        <h2 class="section-heading reveal">Projects</h2>
+        <div class="section-intro reveal"><div><p class="section-kicker">01 / PORTFOLIO</p><h2 class="section-heading">Selected <em>works.</em></h2></div><p>A selection of product experiences shaped through research, structure, and purposeful design.</p></div>
         <div class="project-grid">
           {% assign projects = site.data.projects | sort: 'order' %}
           {% for project in projects %}
+          {% if forloop.index <= 4 %}
           <a class="project-card project-{{ project.slug }} reveal" href="{{ '/' | append: project.slug | append: '/' | relative_url }}">
             <div class="project-image"><img src="{{ project.image | relative_url }}" alt="{{ project.alt }}"{% unless forloop.first %} loading="lazy"{% endunless %}>{% if project.order == 1 or project.order == 2 %}<span class="featured-case-study-badge"><img src="{{ '/assets/media/featured-case-study-lightning.svg' | relative_url }}" alt="" aria-hidden="true"><strong><span>Featured</span> case study</strong></span>{% endif %}</div>
-            <div class="project-copy"><p class="eyebrow">{{ project.type }}</p><h3>{{ project.short_title }}</h3></div>
+            <div class="project-copy"><div><p class="eyebrow">{{ project.type }} / {{ project.year }}</p><h3>{{ project.short_title }}</h3></div><span aria-hidden="true">↗</span></div>
           </a>
+          {% endif %}
           {% endfor %}
+        </div>
+        <a class="outline-cta works-all reveal" href="{{ '/works/' | relative_url }}">View all works <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-intro reveal"><div><p class="section-kicker">02 / WHAT I DO</p><h2 class="section-heading">Design that <em>does more.</em></h2></div><p>From the first question to the final interaction, I make digital experiences easier to understand and more enjoyable to use.</p></div>
+        <div class="services-list">
+          <article class="service-row reveal"><span class="service-number">01</span><div><h3>UI/UX Design</h3><p>Research, flows, wireframes, interfaces, and usability improvements.</p></div><span class="service-mark" aria-hidden="true">↗</span></article>
+          <article class="service-row reveal"><span class="service-number">02</span><div><h3>Web Design &amp; Development</h3><p>Responsive websites with a clear story and thoughtful interaction.</p></div><span class="service-mark" aria-hidden="true">↗</span></article>
+          <article class="service-row reveal"><span class="service-number">03</span><div><h3>AI Experience Design</h3><p>Human-centered concepts and interfaces for AI-enabled products.</p></div><span class="service-mark" aria-hidden="true">↗</span></article>
+          <article class="service-row reveal"><span class="service-number">04</span><div><h3>Motion &amp; Animation</h3><p>Purposeful movement that guides attention and gives feedback.</p></div><span class="service-mark" aria-hidden="true">↗</span></article>
+          <article class="service-row reveal"><span class="service-number">05</span><div><h3>Design Systems</h3><p>Reusable components and foundations that bring consistency at scale.</p></div><span class="service-mark" aria-hidden="true">↗</span></article>
         </div>
       </div>
     </section>
 
-    <section class="section soft">
+    <section class="section testimonials-section" id="testimonials">
       <div class="container">
-        <h2 class="section-heading reveal">Kind words from Colleagues</h2>
+        <div class="section-intro reveal"><div><p class="section-kicker">03 / TESTIMONIALS</p><h2 class="section-heading">Kind words from <em>colleagues.</em></h2></div></div>
         <div class="quotes">
           <blockquote class="quote reveal"><p>“Working with Zoha was smooth and fast. Clear communication and great design decisions.”</p><footer><strong>Farshad Roozbahani</strong>Senior Frontend Developer</footer></blockquote>
           <blockquote class="quote reveal"><p>“Zoha made implementation easy. Practical designs and very collaborative.”</p><footer><strong>Mahshid Arab</strong>Frontend Developer</footer></blockquote>
@@ -73,7 +91,7 @@ image: /assets/media/zoha-portfolio-social-cover.png?v=20260826
       <div class="blog-gradient-divider" aria-hidden="true"></div>
       <div class="container blog-layout">
         <div class="blog-heading reveal">
-          <h2 class="section-heading">Blog</h2>
+          <p class="section-kicker">04 / JOURNAL</p><h2 class="section-heading">Blog<span class="lime-period">.</span></h2>
           <h3>Product Design Notes</h3>
           <p>Thoughtful notes on user journeys, product decisions, and the systems behind clear digital experiences.</p>
           <a class="blog-all-button" href="blog/">View All Blogs <span aria-hidden="true">↗</span></a>
@@ -97,32 +115,41 @@ image: /assets/media/zoha-portfolio-social-cover.png?v=20260826
       </div>
     </section>
 
-    <section class="section" id="aboutme-1">
+    <section class="section about-section" id="aboutme-1">
       <div class="container about-grid">
         <div class="about-visual reveal">
-          <img class="about-doodle about-doodle-spark" src="assets/media/doodle-design-spark.svg" alt="" aria-hidden="true">
-          <img class="about-doodle about-doodle-map" src="assets/media/doodle-flow-map.svg" alt="" aria-hidden="true">
-          <img class="about-doodle about-doodle-pencil" src="assets/media/doodle-idea-pencil.svg" alt="" aria-hidden="true">
-          <img class="about-photo" src="assets/media/zoha-portrait-cutout.png" alt="Zoha Sobhani">
+          <img class="about-photo" src="{{ '/assets/media/zoha-about-me-cutout.png' | relative_url }}" alt="Zoha Sobhani with her laptop and Zoie mug" loading="lazy">
         </div>
         <div class="about-copy reveal">
-          <h2 class="section-heading">About Me</h2>
+          <p class="section-kicker">05 / THE PERSON BEHIND THE WORK</p><h2 class="section-heading">About <em>me.</em></h2>
           <p>I’m Zoha, a product designer with a strong interest in creating thoughtful and user-centered experiences. I enjoy working in collaborative teams where ideas can grow through discussion and feedback.</p>
           <p>Outside of design, I’m usually into sports, good food, movies, and books.</p>
           <p>I like observing how stories are told—whether in a film, a book, or a product—and bringing that sense of clarity and experience into my design work.</p>
+          <a class="outline-cta" href="{{ '/experience/' | relative_url }}">View all experiences <span aria-hidden="true">↗</span></a>
         </div>
+      </div>
+    </section>
+
+    <section class="section availability-section" id="contact">
+      <div class="container availability-inner reveal">
+        <p class="availability-pill"><span aria-hidden="true"></span> Available for new projects</p>
+        <h2>Have a project <em>in mind?</em></h2>
+        <p class="availability-lead">Let’s make something clear, useful, and memorable together.</p>
+        <a class="availability-button" href="mailto:zohasobhani39@gmail.com?subject=Let's%20work%20together">Let’s talk <span aria-hidden="true">↗</span></a>
+        <div class="social-links" aria-label="Social media"><a href="https://www.behance.net/zohasobhani" target="_blank" rel="noopener">Behance ↗</a><a href="https://dribbble.com/zoiee" target="_blank" rel="noopener">Dribbble ↗</a><a href="https://www.linkedin.com/in/zoha-sobhani-773103177/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="mailto:zohasobhani39@gmail.com">Email ↗</a></div>
       </div>
     </section>
   </main>
 
-  <footer class="footer" id="contact">
+  <footer class="footer home-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-column"><p class="footer-label">Contact me</p><p><a href="tel:+989358478186">+98 935 847 8186</a></p><p><a href="mailto:zohasobhani39@gmail.com">zohasobhani39@gmail.com</a></p></div>
-        <div class="footer-column"><p class="footer-label">Useful Links</p><p><a href="assets/media/hUIEC2E1Njxos2cugffzfOihdlY.pdf">My CV</a></p></div>
-        <div class="footer-column"><p class="footer-label">Social</p><p><a href="https://www.linkedin.com/in/zoha-sobhani-773103177/" target="_blank" rel="noopener">Linkedin</a></p></div>
+        <div class="footer-column"><p class="footer-label">Explore</p><p><a href="{{ '/works/' | relative_url }}">All works</a></p><p><a href="{{ '/experience/' | relative_url }}">Experience</a></p><p><a href="{{ '/blog/' | relative_url }}">Blog</a></p></div>
+        <div class="footer-column"><p class="footer-label">Elsewhere</p><p><a href="assets/media/hUIEC2E1Njxos2cugffzfOihdlY.pdf">Download CV ↗</a></p><p><a href="https://www.linkedin.com/in/zoha-sobhani-773103177/" target="_blank" rel="noopener">LinkedIn ↗</a></p></div>
       </div>
-      <div class="copyright"><span>Copyright <span data-year>2026</span></span><span>Made by Zoha Sobhani</span></div>
+      <div class="copyright"><span>© <span data-year>2026</span> Zoha Sobhani</span><span>Designed with intention.</span><a href="#home">Back to top ↑</a></div>
+      <div class="footer-zoie">Zoie</div>
     </div>
   </footer>
 </body>
