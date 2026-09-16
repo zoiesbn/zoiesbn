@@ -39,7 +39,8 @@ button { font: inherit; }
 
 .site-header { position: fixed; inset: 0 0 auto; z-index: 50; width: 100%; background: rgba(255,255,255,.88); border-bottom: 1px solid rgba(0,0,0,.06); backdrop-filter: blur(16px); }
 .site-header .container { height: 64px; display: flex; align-items: center; justify-content: center; }
-.brand { position: absolute; left: 24px; font-weight: 800; letter-spacing: -.03em; }
+.brand { position: absolute; left: 24px; display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; font-weight: 800; letter-spacing: -.03em; }
+.brand img { display: block; width: 44px; height: 46px; object-fit: contain; }
 .nav-links { display: flex; gap: 30px; color: #505057; }
 .nav-links a { transition: color .2s; }
 .nav-links a:hover, .nav-links a:focus-visible { color: #000; }
@@ -719,6 +720,8 @@ button { font: inherit; }
 .home-page .nav-links a:hover, .home-page .nav-links a:focus-visible, .home-page .nav-links a.active { color: var(--violet); }
 .home-page .section { scroll-margin-top: 64px; }
 .section-kicker { margin: 0 0 18px; color: var(--violet); font-size: .74rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+.section-kicker a { color: inherit; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: color .2s, text-decoration-color .2s; }
+.section-kicker a:hover, .section-kicker a:focus-visible { color: var(--lime-600); text-decoration-color: currentColor; }
 .section-intro { display: flex; justify-content: space-between; align-items: end; gap: 42px; margin-bottom: 48px; }
 .section-intro .section-heading { margin: 0; }
 .section-intro > p { max-width: 350px; margin: 0 0 4px; color: #69656b; line-height: 1.55; }
@@ -838,6 +841,29 @@ button { font: inherit; }
 .experience-panel-bottom > div { display: flex; flex-wrap: wrap; justify-content: end; gap: 12px; }
 .experience-panel .outline-cta { border-color: #706970; color: #f7f6f2; }
 .experience-panel .outline-cta:hover { border-color: var(--lime-100); background: var(--lime-100); color: #171516; }
+
+/* Blog index aligned with the Experience page visual language. */
+.blog-page { --ink: #171516; background: #f7f6f2; padding-top: 64px; }
+.blog-index-section { padding: 0 0 110px; }
+.blog-index-panel { position: relative; overflow: hidden; padding: 72px clamp(26px, 5.5vw, 80px) 60px; border-radius: 24px; background: #1c1b1d; color: #f7f6f2; }
+.blog-index-panel-head { position: relative; display: flex; justify-content: space-between; align-items: end; gap: 24px; min-height: 150px; padding-bottom: 34px; }
+.blog-index-watermark { position: absolute; top: -55px; left: -6px; margin: 0; color: #ffffff0b; font-size: clamp(5rem, 13.5vw, 12rem); font-weight: 850; line-height: 1; letter-spacing: -.075em; white-space: nowrap; pointer-events: none; }
+.blog-index-panel-head h2 { position: relative; margin: 0; font-size: clamp(2.4rem, 5vw, 4.8rem); font-weight: 500; line-height: 1; letter-spacing: -.055em; }
+.blog-index-panel-head h2 span { color: var(--lime-100); }
+.blog-index-panel-head > p { position: relative; margin: 0 0 5px; color: #cbc7cc; font-size: 1rem; white-space: nowrap; }
+.blog-index-panel .blog-index-list { margin-top: 30px; border-top: 1px solid #ffffff32; }
+.blog-index-panel .blog-index-card { grid-template-columns: minmax(190px, .68fr) minmax(0, 1.32fr); gap: clamp(26px, 4vw, 54px); padding: 34px 0; border: 0; border-bottom: 1px solid #ffffff32; border-radius: 0; background: transparent; color: #f7f6f2; transition: padding .25s, background .25s; }
+.blog-index-panel .blog-index-card:hover { padding-right: 12px; padding-left: 12px; background: #ffffff07; }
+.blog-index-panel .blog-index-card img { border-radius: 16px; }
+.blog-index-panel .blog-index-card .eyebrow { color: var(--lime-100); }
+.blog-index-panel .blog-index-card p:not(.eyebrow) { color: #aaa5ab; }
+.blog-index-panel .blog-index-card a { color: #f7f6f2; }
+.blog-index-panel .blog-index-card a span { color: var(--lime-100); transition: transform .25s; }
+.blog-index-panel .blog-index-card a:hover span { transform: translateX(4px); }
+.blog-index-panel-bottom { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding-top: 40px; }
+.blog-index-panel-bottom > p { max-width: 430px; margin: 0; color: #aaa5ab; }
+.blog-index-panel .outline-cta { flex: 0 0 auto; border-color: #706970; color: #f7f6f2; }
+.blog-index-panel .outline-cta:hover { border-color: var(--lime-100); background: var(--lime-100); color: #171516; }
 @media (max-width: 700px) {
   .experience-page-lead { padding: 65px 0 42px; }
   .experience-timeline-section { padding-bottom: 70px; }
@@ -854,4 +880,12 @@ button { font: inherit; }
   .experience-arrow { grid-column: 2; grid-row: 1 / 3; }
   .experience-panel-bottom { align-items: start; flex-direction: column; }
   .experience-panel-bottom > div { justify-content: start; }
+  .blog-index-section { padding-bottom: 70px; }
+  .blog-index-panel { padding: 42px 25px; border-radius: 18px; }
+  .blog-index-panel-head { min-height: 120px; align-items: start; flex-direction: column; gap: 12px; padding-bottom: 24px; }
+  .blog-index-watermark { top: -18px; font-size: 16vw; }
+  .blog-index-panel-head > p { margin: 0; }
+  .blog-index-panel .blog-index-list { margin-top: 12px; }
+  .blog-index-panel .blog-index-card { grid-template-columns: 1fr; gap: 22px; padding: 25px 0; }
+  .blog-index-panel-bottom { align-items: start; flex-direction: column; }
 }
