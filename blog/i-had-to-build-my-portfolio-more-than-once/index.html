@@ -1,0 +1,115 @@
+---
+title: I Had to Build My Portfolio More Than Once | Zoha Sobhani
+description: The long route from a practical Notion portfolio to a personal website shaped through Figma, Framer, Codex, and GitHub.
+permalink: /blog/i-had-to-build-my-portfolio-more-than-once/
+image: /assets/media/blog-portfolio-process-cover.png
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  {% include seo.html %}
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css?v=20260916-portfolio-post' | relative_url }}">
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#article">Skip to article</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="../../#home">ZS.</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation">Menu</button>
+      <nav class="nav-links" id="main-nav" aria-label="Main navigation">
+        <a href="../../#home">Home</a><a href="../../#projects">Projects</a><a href="../">Blog</a><a href="../../#aboutme-1">About Me</a><a href="../../#contact">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+  <main id="article" class="blog-page">
+    <section class="section">
+      <article class="container blog-article">
+        <a class="back-link" href="../">Back to Blog</a>
+        <header class="blog-article-header">
+          <p class="blog-kicker">Personal Process</p>
+          <h1>I Had to Build My Portfolio More Than Once</h1>
+          <p class="blog-page-lead">It went through Notion, Figma, Framer, Codex, and more unfinished versions than I expected before it finally felt like mine.</p>
+          <p class="blog-article-meta">By Zoha Sobhani · September 16, 2026 · 5 min read</p>
+        </header>
+
+        <figure class="blog-article-cover">
+          <img src="../../assets/media/blog-portfolio-process-cover.png" alt="The portfolio process moving from content planning and wireframes to interface design, code, and a finished responsive website">
+        </figure>
+
+        <div class="blog-article-content">
+          <p>For a long time, my portfolio was the project I was always “almost done” with.</p>
+          <p>I’d fix the homepage, then realize a project page was too hard to scan. I’d clean up the project page, then notice the mobile layout didn’t hold together. Every improvement exposed another problem.</p>
+          <p>The current website is roughly the fourth real version. Before it, there was a Notion workspace, a full design in Figma, and a live site built with Framer. Then I started rebuilding it with Codex while learning GitHub as I went.</p>
+          <p>That wasn’t the plan. There wasn’t a plan.</p>
+
+          <h2>Somewhere to put my work</h2>
+          <p>My first portfolio lived in Notion because I needed a link I could send to people. That was the whole brief.</p>
+          <p>I collected my projects, wrote down the thinking behind them, added screenshots, and published the pages. No code. No hosting problems. No weeks lost to choosing an animation curve. It did the job.</p>
+
+          <figure class="blog-article-image-slot">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="A scrolling view of my first portfolio in Notion">
+              <source src="../../assets/media/blog-portfolio-notion.mp4" type="video/mp4">
+            </video>
+            <figcaption>My first portfolio in Notion.</figcaption>
+          </figure>
+
+          <p>But the more work I added, the harder it became to read. A hiring manager had to open several pages and piece together what I’d done, why I’d done it, and what changed because of it.</p>
+          <p>I could find everything because I’d built the structure. A first-time visitor couldn’t.</p>
+          <p>Notion wasn’t the problem. It’s still a sensible way to publish a first portfolio. I’d simply reached the point where the container was shaping the story more than I wanted it to.</p>
+
+          <h2>The design was ready before the website was</h2>
+          <p>So I opened Figma and designed the site I actually wanted.</p>
+          <p>I chose what people would see first, where each project needed context, and when an image could do more work than a paragraph. I could control the pace instead of fitting every case study into the same page template.</p>
+
+          <figure class="blog-article-image-slot">
+            <div class="blog-article-image-gallery">
+              <img src="../../assets/media/blog-portfolio-figma-desktop.png" alt="Early desktop portfolio screens designed in Figma, including projects, about, services, and contact pages" loading="lazy">
+              <img src="../../assets/media/blog-portfolio-figma-mobile.png" alt="Early mobile portfolio screens designed in Figma, including projects, about, and contact pages" loading="lazy">
+            </div>
+            <figcaption>Early desktop and mobile explorations in Figma.</figcaption>
+          </figure>
+
+          <p>Then I had to build it.</p>
+          <p>A tidy Figma frame can hide a lot of trouble. Real text wraps. Images arrive in different ratios. A layout that feels balanced at 1440 pixels can fall apart on a phone. And the interaction that took ten minutes to prototype may take hours to make reliable in a browser.</p>
+          <p>I knew what I wanted to see, but I didn’t yet know how to build all of it. Progress slowed down.</p>
+
+          <h2>Getting something out into the world</h2>
+          <p>I spent close to a month learning Framer and rebuilding the site inside it. Some ideas transferred cleanly. Others had to change once I saw how they behaved outside Figma.</p>
+          <p>Still, the site was finally becoming real. I could click through it, test the pages, and send someone a working link instead of another prototype.</p>
+
+          <figure class="blog-article-image-slot">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="A scrolling view of the first portfolio website I published with Framer">
+              <source src="../../assets/media/blog-portfolio-framer.mp4" type="video/mp4">
+            </video>
+            <figcaption>The first version I published with Framer.</figcaption>
+          </figure>
+
+          <p>Publishing that version mattered. It also made the weak spots impossible to ignore.</p>
+          <p>Some interactions felt too generic. A few sections worked, but didn’t quite sound or move like me. Framer had helped me cross the gap between a design and a live website, yet I still wanted more control over the result.</p>
+
+          <h2>Working with Codex</h2>
+          <p>When I moved the portfolio to GitHub, I treated it as a real implementation project rather than another visual prototype. The site is built as a static Jekyll project with HTML, CSS, and JavaScript, then published through GitHub Pages.</p>
+          <p>I defined the information architecture, visual direction, interaction behavior, and content. I used Codex to help translate those decisions into the codebase, inspect existing files, trace layout problems, and make targeted changes without rebuilding every page by hand.</p>
+          <p>The work happened feature by feature. I refined the navigation, rebuilt the homepage hierarchy, structured the case-study pages, set responsive breakpoints, tuned motion timing, optimized media, and checked how each change behaved across desktop and mobile. Every update went through the same loop: edit the code, review it in the browser, identify what was wrong, and revise it.</p>
+          <p>GitHub became the source of truth for the website. I could review diffs, track changes across files, keep assets and content in one place, and publish from the same repository I was testing locally. That made the gap between design and production much smaller.</p>
+          <p>Working this way also gave me a practical understanding of the codebase. I can follow how pages are assembled, find the CSS behind a layout issue, manage media files, and judge whether a change is ready to publish. My role is still rooted in product design, but I can now carry decisions much further into implementation.</p>
+          <p>Codex supported the coding and debugging work. The product direction, UI decisions, content, iteration priorities, and final quality checks remained mine.</p>
+
+          <figure class="blog-article-image-slot">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="A continuous walkthrough of the final portfolio website">
+              <source src="../../assets/media/blog-portfolio-final.mp4" type="video/mp4">
+            </video>
+            <figcaption>The final implementation, developed in a GitHub repository and published through GitHub Pages.</figcaption>
+          </figure>
+
+          <p>The video is a continuous walkthrough of the final implementation, including the page structure, navigation, case studies, responsive behavior, and motion in the live site.</p>
+          <p>You can also <a href="../../">visit the live portfolio</a>.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
