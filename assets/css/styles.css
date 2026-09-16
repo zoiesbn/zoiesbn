@@ -157,6 +157,7 @@ button { font: inherit; }
 .blog-article-content > * { max-width: 680px; }
 .blog-article-content .blog-article-image-slot { margin: 34px 0 44px; }
 .blog-article-image-slot .blog-image-placeholder { width: 100%; aspect-ratio: 16 / 10; border-radius: 20px; }
+.blog-article-image-slot > img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 20px; background: #fff; }
 .blog-article-image-slot video { width: 100%; height: auto; border-radius: 20px; background: #1c1b1d; }
 .blog-article-image-gallery { display: grid; gap: 16px; }
 .blog-article-image-gallery img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 20px; background: #fff; }
