@@ -1,6 +1,6 @@
 ---
 title: I Had to Build My Portfolio More Than Once | Zoha Sobhani
-description: The long route from a practical Notion portfolio to a personal website shaped through Figma, Framer, Codex, and GitHub.
+description: How I took my portfolio from Notion through an early React attempt and a live Framer site, then returned to Figma to design a new version for GitHub Pages.
 permalink: /blog/i-had-to-build-my-portfolio-more-than-once/
 image: /assets/media/blog-portfolio-process-cover.png
 ---
@@ -31,7 +31,7 @@ image: /assets/media/blog-portfolio-process-cover.png
         <header class="blog-article-header">
           <p class="blog-kicker">Personal Process</p>
           <h1>I Had to Build My Portfolio More Than Once</h1>
-          <p class="blog-page-lead">It went through Notion, Figma, Framer, Codex, and more unfinished versions than I expected before it finally felt like mine.</p>
+          <p class="blog-page-lead">From Notion to an early React attempt, a live Framer site, and a fresh Figma design published through GitHub Pages — building my portfolio became a project of its own.</p>
           <p class="blog-article-meta">By Zoha Sobhani · September 16, 2026 · 5 min read</p>
         </header>
 
@@ -42,8 +42,8 @@ image: /assets/media/blog-portfolio-process-cover.png
         <div class="blog-article-content">
           <p>For a long time, my portfolio was the project I was always “almost done” with.</p>
           <p>I’d fix the homepage, then realize a project page was too hard to scan. I’d clean up the project page, then notice the mobile layout didn’t hold together. Every improvement exposed another problem.</p>
-          <p>The current website is roughly the fourth real version. Before it, there was a Notion workspace, a full design in Figma, and a live site built with Framer. Then I started rebuilding it with Codex while learning GitHub as I went.</p>
-          <p>That wasn’t the plan. There wasn’t a plan.</p>
+          <p>Looking back, the project went through roughly four stages: a Notion portfolio, a Figma design I tried to build with React, a website I designed and published in Framer, and a new design I took from Figma to GitHub Pages.</p>
+          <p>Each move came from something I wanted to do better, or something I hadn’t yet learned how to do.</p>
 
           <h2>Somewhere to put my work</h2>
           <p>My first portfolio lived in Notion because I needed a link I could send to people. That was the whole brief.</p>
@@ -73,12 +73,13 @@ image: /assets/media/blog-portfolio-process-cover.png
           </figure>
 
           <p>Then I had to build it.</p>
-          <p>A tidy Figma frame can hide a lot of trouble. Real text wraps. Images arrive in different ratios. A layout that feels balanced at 1440 pixels can fall apart on a phone. And the interaction that took ten minutes to prototype may take hours to make reliable in a browser.</p>
-          <p>I knew what I wanted to see, but I didn’t yet know how to build all of it. Progress slowed down.</p>
+          <p>I tried to implement the design with React, but I didn’t know it well enough to make steady progress. I kept getting stuck translating the layouts and interactions into working code. A change that was simple in Figma could turn into a problem I didn’t know how to solve.</p>
+          <p>The design gave me a clear target. Getting there meant learning React alongside everything else the website needed, and I was spending more time trying to make things work than improving the experience.</p>
+          <p>That’s when I decided to learn Framer.</p>
 
           <h2>Getting something out into the world</h2>
-          <p>I spent close to a month learning Framer and rebuilding the site inside it. Some ideas transferred cleanly. Others had to change once I saw how they behaved outside Figma.</p>
-          <p>Still, the site was finally becoming real. I could click through it, test the pages, and send someone a working link instead of another prototype.</p>
+          <p>Framer gave me a way to design the website and publish it from the same tool. I spent time learning how its layouts, responsive settings, and interactions worked, then used them to shape the site directly.</p>
+          <p>I could adjust a section, see how it behaved at different widths, and keep designing with the working page in front of me. Some ideas from the Figma file carried over. Others changed as I built.</p>
 
           <figure class="blog-article-image-slot">
             <video autoplay muted loop playsinline preload="metadata" aria-label="A scrolling view of the first portfolio website I published with Framer">
@@ -87,16 +88,17 @@ image: /assets/media/blog-portfolio-process-cover.png
             <figcaption>The first version I published with Framer.</figcaption>
           </figure>
 
-          <p>Publishing that version mattered. It also made the weak spots impossible to ignore.</p>
-          <p>Some interactions felt too generic. A few sections worked, but didn’t quite sound or move like me. Framer had helped me cross the gap between a design and a live website, yet I still wanted more control over the result.</p>
+          <p>Publishing that version was a milestone. I finally had a live website I’d designed and could share.</p>
+          <p>Later, I decided to rethink the design and returned to Figma. I wanted to work through the new hierarchy, page layouts, and visual direction before choosing how to build them. The experience of publishing with Framer gave me a better sense of what those decisions would mean on a working site.</p>
 
-          <h2>Working with Codex</h2>
-          <p>When I moved the portfolio to GitHub, I treated it as a real implementation project rather than another visual prototype. The site is built as a static Jekyll project with HTML, CSS, and JavaScript, then published through GitHub Pages.</p>
-          <p>I defined the information architecture, visual direction, interaction behavior, and content. I used Codex to help translate those decisions into the codebase, inspect existing files, trace layout problems, and make targeted changes without rebuilding every page by hand.</p>
-          <p>The work happened feature by feature. I refined the navigation, rebuilt the homepage hierarchy, structured the case-study pages, set responsive breakpoints, tuned motion timing, optimized media, and checked how each change behaved across desktop and mobile. Every update went through the same loop: edit the code, review it in the browser, identify what was wrong, and revise it.</p>
-          <p>GitHub became the source of truth for the website. I could review diffs, track changes across files, keep assets and content in one place, and publish from the same repository I was testing locally. That made the gap between design and production much smaller.</p>
-          <p>Working this way also gave me a practical understanding of the codebase. I can follow how pages are assembled, find the CSS behind a layout issue, manage media files, and judge whether a change is ready to publish. My role is still rooted in product design, but I can now carry decisions much further into implementation.</p>
-          <p>Codex supported the coding and debugging work. The product direction, UI decisions, content, iteration priorities, and final quality checks remained mine.</p>
+          <h2>Working with GitHub Pages</h2>
+          <p>With the new design taking shape in Figma, I researched ways to turn it into code while keeping control over the website. Development tools had moved on since my earlier React attempt, and I found routes that made a custom build more practical for me. I chose GitHub Pages for publishing, with Codex as a coding tool to help implement my design.</p>
+          <p>The site uses Jekyll, HTML, CSS, and JavaScript. Its source files live in a GitHub repository. That setup gives me direct access to the page structure, styles, interactions, and content, so I can change the site as my work evolves.</p>
+          <p>My Figma design was the starting point for those decisions. I’d worked out the hierarchy, typography, spacing, and project layouts there. During implementation, I reviewed each section in the browser against that design and checked where it needed to adapt to real content or a smaller screen.</p>
+          <p>Some details needed another pass. A heading could wrap differently, a project card could feel too dense, or a transition could interrupt the reading flow. I used those differences to refine both the design and its implementation.</p>
+          <p>And I learned to look beyond the layout. Shared CSS rules can affect several pages. Responsive breakpoints need to suit the content. A screen recording needs compression before it belongs on a website. These became practical decisions I could understand and review as part of the design process.</p>
+          <p>Keeping the project in GitHub also meant learning how changes are recorded, how to read a diff, and how an update moves from local files to the published site. More control comes with more upkeep, and I’m still learning parts of that workflow. For this version, that trade-off was worth it.</p>
+          <p>I now think about how a layout will behave while I’m designing it in Figma. What happens when the text gets longer? Which styles should be shared? What needs to change on mobile? Building the portfolio gave me a way to test those decisions and bring what I learned back into my design work.</p>
 
           <figure class="blog-article-image-slot">
             <img src="../../assets/media/blog-portfolio-final-implementation.png" alt="The final portfolio homepage and selected work section implemented in the live website" loading="lazy">
