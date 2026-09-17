@@ -738,7 +738,7 @@ button { font: inherit; }
 .section-heading em, .works-index-section h1 em, .availability-section h2 em { color: var(--violet); font-style: normal; }
 .lime-period { color: var(--lime-300); }
 .selected-works-section { background: #f7f6f2; }
-.selected-works-section .project-grid, .works-index-section .project-grid { gap: 42px 28px; }
+.selected-works-section .project-grid, .works-index-section .project-grid { column-gap: 28px; row-gap: 76px; }
 .selected-works-section .project-card, .works-index-section .project-card { overflow: visible; border: 0; border-radius: 0; background: transparent; box-shadow: none; color: #171516; }
 .selected-works-section .project-card:hover, .works-index-section .project-card:hover { transform: none; box-shadow: none; }
 .selected-works-section .project-image, .works-index-section .project-image { aspect-ratio: 1.37; overflow: hidden; border-radius: 18px; background: #e7e4e0; }
@@ -820,7 +820,7 @@ button { font: inherit; }
 .experience-intro { min-height: 70vh; display: flex; align-items: center; }
 .experience-intro p:not(.section-kicker) { max-width: 560px; margin: 24px 0 30px; color: #69656b; font-size: 1.15rem; }
 .experience-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-@media (max-width: 900px) { .section-intro { align-items: start; flex-direction: column; gap: 18px; } .selected-works-section .project-grid, .works-index-section .project-grid { gap: 36px 20px; } }
+@media (max-width: 900px) { .section-intro { align-items: start; flex-direction: column; gap: 18px; } .selected-works-section .project-grid, .works-index-section .project-grid { column-gap: 20px; row-gap: 60px; } }
 @media (max-width: 600px) { .home-page .section-heading { font-size: clamp(2.6rem, 12vw, 4rem); } .selected-works-section .project-grid, .works-index-section .project-grid { grid-template-columns: 1fr; } .selected-works-section .featured-case-study-badge { top: 12px; right: 12px; } .service-row { grid-template-columns: 28px 1fr 25px; gap: 10px; padding: 26px 0; } .service-row h3 { font-size: 1.6rem; } .service-row p { font-size: .86rem; } .social-links { margin-top: 70px; } .footer-zoie { margin-top: 38px; } .experience-intro { min-height: 65vh; } }
 
 /* Resume-backed experience timeline. */
