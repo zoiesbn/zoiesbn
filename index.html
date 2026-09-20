@@ -10,7 +10,7 @@ image: /assets/media/zoha-portfolio-social-cover.png?v=20260826
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   {% include seo.html %}
-  <link rel="stylesheet" href="{{ '/assets/css/styles.css?v=20260914-hero-weight-2' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css?v=20260920-clickable-blog-cards' | relative_url }}">
   <script src="{{ '/assets/js/main.js?v=20260914-zoie-open' | relative_url }}" defer></script>
   <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
@@ -97,20 +97,20 @@ image: /assets/media/zoha-portfolio-social-cover.png?v=20260826
           <a class="blog-all-button" href="blog/">View All Blogs <span aria-hidden="true">↗</span></a>
         </div>
         <div class="blog-preview-grid">
-          <article class="blog-preview-card reveal">
+          <a class="blog-preview-card reveal" href="blog/i-had-to-build-my-portfolio-more-than-once/" aria-label="Read: I Had to Build My Portfolio More Than Once">
             <img src="assets/media/blog-portfolio-process-cover.png" alt="The portfolio process moving from planning and wireframes to design, code, and a finished website">
             <span class="blog-category">Personal Process</span>
             <p class="blog-date">September 16, 2026</p>
             <h3>I Had to Build My Portfolio More Than Once</h3>
-            <a href="blog/i-had-to-build-my-portfolio-more-than-once/">Read More <span aria-hidden="true">→</span></a>
-          </article>
-          <article class="blog-preview-card reveal">
+            <span class="blog-read-link">Read More <span aria-hidden="true">→</span></span>
+          </a>
+          <a class="blog-preview-card reveal" href="blog/from-figma-to-code-and-back/" aria-label="Read: From Figma to Code—and Back Again">
             <img src="assets/media/blog-figma-to-code-cover.png" alt="Design canvas, code, and product interface connected in a continuous loop">
             <span class="blog-category">Product Design</span>
             <p class="blog-date">August 26, 2026</p>
             <h3>From Figma to Code—and Back Again</h3>
-            <a href="blog/from-figma-to-code-and-back/">Read More <span aria-hidden="true">→</span></a>
-          </article>
+            <span class="blog-read-link">Read More <span aria-hidden="true">→</span></span>
+          </a>
         </div>
       </div>
     </section>
