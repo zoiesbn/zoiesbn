@@ -1,0 +1,56 @@
+{% assign persian_page = site.pages | where: "url", page.persian_url | first %}
+<!doctype html>
+<html lang="{{ page.lang | default: 'en' }}" dir="{% if page.lang == 'fa' %}rtl{% else %}ltr{% endif %}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  {% include seo.html %}
+  <link rel="alternate" hreflang="en" href="{{ page.english_url | absolute_url }}">
+  {% if persian_page %}<link rel="alternate" hreflang="fa" href="{{ page.persian_url | absolute_url }}">{% endif %}
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css?v=20260920-clickable-blog-cards' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/blog-series.css?v=20260920' | relative_url }}">
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</head>
+<body class="series-post">
+  {% if page.lang == 'fa' %}
+    <a class="skip-link" href="#article">رفتن به متن مقاله</a>
+  {% else %}
+    <a class="skip-link" href="#article">Skip to article</a>
+  {% endif %}
+  <header class="site-header" dir="ltr">
+    <div class="container">
+      <a class="brand" href="{{ '/' | relative_url }}">ZS.</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation">Menu</button>
+      <nav class="nav-links" id="main-nav" aria-label="Main navigation">
+        <a href="{{ '/' | relative_url }}">Home</a><a href="{{ '/works/' | relative_url }}">Works</a><a href="{{ '/#services' | relative_url }}">Services</a><a href="{{ '/blog/' | relative_url }}">Blog</a><a href="{{ '/#aboutme-1' | relative_url }}">About Me</a><a href="{{ '/#contact' | relative_url }}">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="article" class="blog-page">
+    <section class="section">
+      <article class="container blog-article">
+        <div class="series-post-toolbar">
+          <a class="back-link" href="{{ '/blog/' | relative_url }}">{% if page.lang == 'fa' %}بازگشت به بلاگ{% else %}Back to Blog{% endif %}</a>
+          {% if persian_page %}
+          <nav class="article-language-switch" aria-label="{% if page.lang == 'fa' %}زبان مقاله{% else %}Article language{% endif %}" dir="ltr">
+            <a href="{{ page.english_url | relative_url }}" lang="en" hreflang="en"{% if page.lang == 'en' %} aria-current="page"{% endif %}>English</a>
+            <a href="{{ page.persian_url | relative_url }}" lang="fa" hreflang="fa"{% if page.lang == 'fa' %} aria-current="page"{% endif %}>فارسی</a>
+          </nav>
+          {% endif %}
+        </div>
+        <header class="blog-article-header">
+          <p class="blog-kicker">{% if page.lang == 'fa' %}دیزاین‌سیستم · قسمت اول{% else %}Design Systems · Part 1{% endif %}</p>
+          <h1>{{ page.title }}</h1>
+          <p class="blog-page-lead">{{ page.description }}</p>
+          <p class="series-post-name">{{ page.series }}</p>
+          <p class="blog-article-meta">{% if page.lang == 'fa' %}نویسنده: ضحی سبحانی{% else %}By Zoha Sobhani{% endif %} · <time datetime="2026-09-20">{{ page.display_date }}</time> · {{ page.reading_time }}</p>
+        </header>
+        <figure class="blog-article-cover">
+          <img src="{{ page.image | relative_url }}" alt="{{ page.cover_alt }}" width="1536" height="1024">
+        </figure>
+        <div class="blog-article-content">{{ content }}</div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
