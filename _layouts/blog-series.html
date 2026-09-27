@@ -8,7 +8,7 @@
   <link rel="alternate" hreflang="en" href="{{ page.english_url | absolute_url }}">
   {% if persian_page %}<link rel="alternate" hreflang="fa" href="{{ page.persian_url | absolute_url }}">{% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/styles.css?v=20260920-clickable-blog-cards' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/blog-series.css?v=20260920' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/blog-series.css?v=20260922' | relative_url }}">
   <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
 </head>
 <body class="series-post">
@@ -39,16 +39,30 @@
           {% endif %}
         </div>
         <header class="blog-article-header">
-          <p class="blog-kicker">{% if page.lang == 'fa' %}دیزاین‌سیستم · قسمت اول{% else %}Design Systems · Part 1{% endif %}</p>
+          <p class="blog-kicker">{% if page.lang == 'fa' %}دیزاین‌سیستم · {{ page.part_label | default: 'قسمت اول' }}{% else %}Design Systems · Part {{ page.series_order }}{% endif %}</p>
           <h1>{{ page.title }}</h1>
           <p class="blog-page-lead">{{ page.description }}</p>
           <p class="series-post-name">{{ page.series }}</p>
-          <p class="blog-article-meta">{% if page.lang == 'fa' %}نویسنده: ضحی سبحانی{% else %}By Zoha Sobhani{% endif %} · <time datetime="2026-09-20">{{ page.display_date }}</time> · {{ page.reading_time }}</p>
+          <p class="blog-article-meta">{% if page.lang == 'fa' %}نویسنده: ضحی سبحانی{% else %}By Zoha Sobhani{% endif %} · <time datetime="{{ page.article_date | default: '2026-09-20' }}">{{ page.display_date }}</time> · {{ page.reading_time }}</p>
         </header>
         <figure class="blog-article-cover">
-          <img src="{{ page.image | relative_url }}" alt="{{ page.cover_alt }}" width="1536" height="1024">
+          <img src="{{ page.image | relative_url }}" alt="{{ page.cover_alt }}" width="{{ page.image_width | default: 1536 }}" height="{{ page.image_height | default: 1024 }}">
         </figure>
         <div class="blog-article-content">{{ content }}</div>
+        {% assign previous_article = nil %}
+        {% assign next_article = nil %}
+        {% if page.previous_article_url %}{% assign previous_article = site.pages | where: 'url', page.previous_article_url | first %}{% endif %}
+        {% if page.next_article_url %}{% assign next_article = site.pages | where: 'url', page.next_article_url | first %}{% endif %}
+        {% if previous_article or next_article %}
+        <nav class="series-navigation" aria-label="{% if page.lang == 'fa' %}قسمت‌های این مجموعه{% else %}Articles in this series{% endif %}">
+          {% if previous_article %}
+          <a href="{{ previous_article.url | relative_url }}" rel="prev"><span>{% if page.lang == 'fa' %}قسمت قبل{% else %}Previous article{% endif %}</span><strong>{{ previous_article.title }}</strong></a>
+          {% endif %}
+          {% if next_article %}
+          <a href="{{ next_article.url | relative_url }}" rel="next"><span>{% if page.lang == 'fa' %}قسمت بعد{% else %}Next article{% endif %}</span><strong>{{ next_article.title }}</strong></a>
+          {% endif %}
+        </nav>
+        {% endif %}
       </article>
     </section>
   </main>

@@ -8,6 +8,7 @@ series_id: practical-design-systems
 series_order: 1
 translation_key: design-system-01-components-and-consistency
 next_article_title: "Before You Build, Audit What You Already Have"
+next_article_url: /blog/audit-before-you-build/
 
 layout: blog-series
 permalink: /blog/components-and-consistency/
