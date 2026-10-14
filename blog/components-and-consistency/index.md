@@ -22,11 +22,11 @@ cover_alt: "Rightel design system: interface components organized into a shared 
 
 Two text fields in the older Rightel library were both called “Large.” One was 48 pixels tall. The other was 60.
 
-Same name. Different rules.
+The label didn't help me choose between them.
 
 There wasn’t a clear difference in their purpose to explain the extra height. A designer could pick either one for an equivalent task and end up with a different form layout. Both choices came from the library.
 
-That detail captures the problem I worked on while helping evolve Rightel’s design system. Components already existed. What needed work was the logic connecting them.
+I found this while working on Rightel’s design system. The library already had components, but some of them left designers without a clear reason to choose one version over another.
 
 ![Two text-field families in the previous Rightel library, both labeled Large, with heights of 48 and 60 pixels.](/assets/media/rightel-design-system-old-textfields.png)
 
@@ -34,11 +34,11 @@ That detail captures the problem I worked on while helping evolve Rightel’s de
 
 ## Why we started with Material Design
 
-Time and implementation constraints shaped the work. Our team needed an existing foundation, so we chose Material Design as the basis for the system.
+We had limited time and implementation capacity, so we chose Material Design as our starting point.
 
 But our product needed components beyond what we could use directly. We built those additions around Material’s rules, which meant spending considerable time studying how its components were structured, how their layers fit together, and how that structure supported different states.
 
-That learning was part of the work. Before extending a component, I needed to understand the logic I was extending. Matching its appearance wasn’t enough to make a new component fit the system.
+Before extending a component, I needed to understand how it was built. A similar appearance wouldn't help if our version handled content or states differently.
 
 Choosing Material gave us a starting point. It still left us responsible for how we adapted it and how we documented the components we added. The inconsistencies described here came from the Rightel library I reviewed; they weren’t findings about Material’s own library.
 
@@ -50,7 +50,7 @@ Each gap left someone with a decision to make while designing a screen.
 
 Take a missing state. If a form needs a particular error treatment and the component doesn’t support it, the designer still has to finish the form. A local edit solves the immediate problem. But unless that decision comes back into the library, the next designer has to solve it again.
 
-That’s how a library can grow while the interface keeps drifting. Reuse helps when the thing being reused carries clear decisions with it.
+If those local fixes stay outside the library, other designers can keep running into the same gaps. The component needs to support the recurring requirement or explain how to handle it.
 
 ## What I expect a design system to do
 
@@ -60,13 +60,13 @@ For a text field, that means more than choosing a height and a border color. I n
 
 The same questions reach into implementation. A focus state drawn in Figma needs a corresponding behavior in the product. A name should point designers and developers toward the same thing. When a new need appears, there should be a way to review it without quietly creating another competing version.
 
-I think that’s where the real work sits: making recurring decisions clear enough that another person can use them without needing the library’s author beside them.
+I want another designer to be able to use the component without asking its author to explain the same choices each time.
 
 ## Consistency needs a reason
 
 The two Large fields didn’t prove that every input should have the same height. Different contexts can justify different dimensions. A compact control and a roomier one may both belong in a system.
 
-But that distinction needs a purpose and a name people can understand.
+If both sizes are needed, their names and guidance should explain where each belongs.
 
 In this case, one field was roughly a quarter taller than the other, yet both presented themselves as the same choice. I couldn’t treat that difference as a useful variant without first finding the need it served.
 
@@ -86,8 +86,6 @@ The point was to make those choices available where someone was working. If a co
 
 *The revised family brings styles, states, themes, and content options into a shared structure.*
 
-I can show those changes in the Figma files. I’d need separate evidence to say how much time they saved or how consistently teams adopted them. A more complete library gives you something to test in real work; it doesn’t settle those questions by itself.
-
 ## Try one component before judging the whole library
 
 Pick a component that appears in several active screens. Compare the instances with the library version and ask:
@@ -96,7 +94,7 @@ Pick a component that appears in several active screens. Compare the instances w
 - Do the differences reflect distinct needs, or just separate design decisions?
 - If the library builds on an existing system, do its custom additions follow that system’s rules?
 - Can I represent the states and content the screen requires using the component’s existing properties?
-- If something is missing, is it clear how to request a change?
+- If the component doesn't support what the screen needs, do I know who to discuss that with?
 
 Write down where the answers become unclear. Keep the component, its screen context, and the unanswered question together. That gives you a specific problem to investigate before you start rearranging the library.
 

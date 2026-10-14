@@ -1,6 +1,6 @@
 ---
 title: "From Color Values to Design Decisions"
-description: "How to turn recurring choices about color, spacing, and type into useful design tokens—and make their purpose clear in Figma and code."
+description: "How to turn recurring choices about color, spacing, and type into useful design tokens that designers and developers can choose and update with confidence."
 author: Zoha Sobhani
 lang: en
 series: "Building a Design System That Teams Can Actually Use"
@@ -11,6 +11,7 @@ translation_key: design-system-03-from-color-values-to-design-decisions
 previous_article_title: "Before You Build, Audit What You Already Have"
 previous_article_url: /blog/audit-before-you-build/
 next_article_title: "Building a Button Without Creating Every Possible Variant"
+next_article_url: /blog/building-a-button/
 reading_time: "7 min read"
 layout: blog-series
 permalink: /blog/from-color-values-to-design-decisions/
@@ -24,9 +25,9 @@ cover_alt: "Interface components in the Rightel design system"
 
 Imagine a link and a primary button that use the same purple. You want to make links darker so they're easier to read against the page. You change the shared color, and the button changes too.
 
-The two elements shared a value. Did they need to share that decision?
+They happened to use the same color, but you only wanted to change one of them.
 
-That's the question I want a token system to answer. A palette tells me which colors are available. I also need to know where each one belongs and which parts of the interface should change together.
+I want token names to make those connections clear. When I update a link color, I should know which parts of the interface will change with it.
 
 In the previous post, I covered comparing screens with the component library and deciding which gaps to address first. Once you've identified a recurring problem, the next step is to give its solution a clear rule that other components can use.
 
@@ -74,13 +75,13 @@ The scale alone doesn't tell me how far a label should sit from its field.
 
 If that gap repeatedly needs the same treatment, I might define `space/field/label-gap` and connect it to the 8-pixel value. For this example, I'd use it for labels positioned above fields. If later testing calls for a wider gap, I can change that role without also changing every unrelated 8-pixel gap.
 
-But I wouldn't create a new name for every distance on a screen. A role earns a separate token when it represents a repeated choice worth managing independently. A one-off layout adjustment may only need an existing spacing value and a note explaining the exception.
+But I wouldn't create a new name for every distance on a screen. I'd add a separate token when the same choice comes up repeatedly and needs to change independently of other values. A one-off layout adjustment may only need an existing spacing value and a note explaining the exception.
 
 ## A text style needs more than a font size
 
 Two pieces of text can both be 16 pixels and still behave very differently. Weight, line height, font choice, and available width affect how they read and wrap.
 
-I'd describe text by its job—body copy, a field label, supporting text—then define the settings together. A name like `type/body/default` is useful only if people can tell when to choose it.
+I'd start with where the text appears, such as body copy, a field label, or supporting text. Then I'd define the font, size, weight, and line height together. A name like `type/body/default` is useful only if people can tell when to choose it.
 
 In Figma, a text style can hold several typography settings together. Variables can supply reusable values to supported properties, and aliases can connect those variables. Styles and variables can work together; you don't need to replace every style with a variable. [Figma's guide explains that distinction](https://help.figma.com/hc/en-us/articles/15871097384471-The-difference-between-variables-and-styles).
 
@@ -104,6 +105,6 @@ For example, `color/text/link` in Figma might map to `--color-text-link` in CSS.
 
 Then review one implemented screen together. Is the link using the intended token? Does the error message use its own text role? Does a longer label still fit? Check the result where people will use it.
 
-For the first pass, I'd keep a small table with the token's name, purpose, value or reference, and an example of where it belongs. If another designer can't choose between two entries without asking me, I still owe them a clearer distinction.
+For the first pass, I'd keep a small table with the token's name, purpose, value or reference, and an example of where it belongs. If another designer can't choose between two entries, I'd check whether their uses are clearly explained or whether both entries are needed.
 
 In the next post, **Building a Button Without Creating Every Possible Variant**, I'll use these decisions inside a component: which choices belong in variants, which should be properties, and which combinations don't need to exist at all.

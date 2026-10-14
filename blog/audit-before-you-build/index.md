@@ -26,7 +26,7 @@ cover_alt: "Earlier Rightel screens and library components, including text field
 
 A component library can look orderly while leaving designers with the same unanswered questions on every screen. Renaming its layers won't tell you why a field has been detached, or whether two similar buttons actually serve different needs.
 
-You have to look at where those components are used.
+Comparing the component with its instances in actual screens helps explain what's missing.
 
 In my work on Rightel's design system, I compared the older library with patterns already used across the product. I grouped components by purpose and examined their structure, sizes, settings, and states. The useful findings came from putting the library and its screen context beside each other.
 
@@ -34,7 +34,7 @@ We'd started with Material Design because time and implementation constraints ma
 
 ## Start with a flow you can finish reviewing
 
-An audit gets unwieldy when its first task is “collect every screen.” I'd start with one active flow and the component families it relies on. A form is a useful candidate: fields, buttons, labels, and feedback all have to work together.
+Collecting every screen can take a lot of time before you make a single decision. I'd start with one active flow and the components it uses. A form is a useful candidate: fields, buttons, labels, and feedback all have to work together.
 
 Bring the library components into a Figma page beside their instances from that flow. Keep a link to each source screen and note whether the example comes from a design file or the live product. A design file alone can't tell you what shipped.
 
@@ -42,15 +42,15 @@ For each example, record its purpose, the component it uses, and any local chang
 
 I'd keep archived screens separate. They can explain how a pattern developed, but they shouldn't carry the same weight as a screen people still use.
 
-## Group by the decision the user is making
+## Compare components used for similar tasks
 
 Names make a poor starting point when naming is part of the problem. Two components can share a name and behave differently. Two others can have different names and do the same job.
 
-Group examples by purpose first: entering information, choosing an option, starting an action, or showing feedback. Then compare the details within each family.
+Group examples by purpose first: entering information, choosing an option, starting an action, or showing feedback. Then compare the sizes, settings, and behavior of components used for the same task.
 
-In the older Rightel library, two text-field families both offered a “Large” size. One was 48 pixels tall; the other was 60 — roughly a quarter taller. The name didn't explain the difference, and there wasn't a distinct functional need behind it in the examples I reviewed.
+In the older Rightel library, two text-field families both offered a “Large” size. One was 48 pixels tall and the other was 60, roughly a quarter taller. The name didn't explain the difference, and there wasn't a distinct functional need behind it in the examples I reviewed.
 
-That was a finding worth recording. “These fields look different” wasn't specific enough. “Equivalent fields use the same size label for different heights” gave me a decision to investigate.
+Writing “These fields look different” wouldn't tell anyone what to fix. The specific problem was that two fields for equivalent tasks had the same size label but different heights. I needed to establish whether one size should replace the other or whether their uses needed clearer names.
 
 ## Read the layers, then check the states
 
@@ -58,9 +58,9 @@ The outside of a component only tells part of the story. Open it in Figma and lo
 
 Because we were extending Material, I spent time learning its component structure and the relationship between layers and states. That gave me a basis for reviewing our custom additions beyond whether they looked similar.
 
-An override isn't automatically a mistake. It may reveal a setting the shared component should support. A detached instance is a lead to follow: what couldn't the designer do with the original?
+Changing a button label is a normal override. Changing its structure may need a closer look. If an instance has been detached, ask the designer what they couldn't do with the original component before deciding how to change it.
 
-Then inspect the states that matter for that control. For a button, I'd check focus, hover where relevant, pressed, and disabled behavior. For a field, I'd also inspect entered content, validation feedback, and what happens when supporting text wraps. Don't mark a whole family “complete” because its default state looks finished.
+Then inspect the states that matter for that control. For a button, I'd check focus, hover where relevant, pressed, and disabled behavior. For a field, I'd also inspect entered content, validation feedback, and what happens when supporting text wraps. A finished default state doesn't tell you whether the other states the screen needs are ready.
 
 The old Rightel button family exposed another gap: the Large size used a 4-pixel corner radius and Medium used 16. Its interaction states also weren't fully covered. Geometry and behavior needed separate entries in the audit; changing the corners wouldn't answer the missing state questions.
 
@@ -70,9 +70,9 @@ The old Rightel button family exposed another gap: the Large size used a 4-pixel
 
 ## Turn observations into decisions
 
-A wall of screenshots is useful evidence. I still want a short record that tells me what to do with it.
+Screenshots show where components differ. Beside each one, write down the problem, where it appears, and what to check or change next.
 
-Here's a compact example based on the findings above. The actions are proposed next steps, not a claim that this was our original tracking sheet. In your own audit, attach a source link to each row.
+This teaching example uses the findings above to show how I'd record a problem and a proposed next step. Add a link to the source screen for each row in your own audit.
 
 <div class="audit-table-scroll" role="region" aria-label="Component audit example" tabindex="0" markdown="1">
 
@@ -85,7 +85,7 @@ Here's a compact example based on the findings above. The actions are proposed n
 
 For each finding, choose a direction: keep it, clarify it, merge it, extend it, or investigate further. That last option matters. If you haven't checked why a difference exists, you aren't ready to remove it.
 
-A denser control may belong in a space-constrained view. An unfamiliar shape might reflect an implementation constraint. Ask the people who designed and built that flow before turning an assumption into a system-wide rule.
+A shorter field may be needed inside a compact table. A different shape may come from a limitation in the implementation. Ask the people who designed and built the screen before deciding to remove the difference.
 
 ## Fix what blocks real work first
 
@@ -95,6 +95,6 @@ A missing focus state on a common control deserves attention ahead of a small vi
 
 Review the shortlist with a developer. Agree on what should change, who will take it forward, and how to check it in a real flow. A library fix isn't finished just because the main component looks correct; its existing instances and implementation need attention too.
 
-I'd stop the first audit when I can explain the highest-priority gaps and name the next decisions. You don't need to settle every corner of the library before improving one family. Keep the unresolved questions visible and return to them as the product gives you more evidence.
+I'd stop the first audit when I can explain the highest-priority gaps and name the next decisions. You can start improving a component once its problem and next steps are clear, even if the wider audit is still underway. Keep the unresolved questions visible and return to them as the product gives you more evidence.
 
 In the next post, **From Color Values to Design Decisions**, I'll look at the rules underneath those components: how to turn recurring choices about color, spacing, and type into foundations and tokens that describe their purpose.

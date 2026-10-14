@@ -1,6 +1,6 @@
 ---
-title: From Figma to Code—and Back Again | Zoha Sobhani
-description: Why strong product designers know when to create a shared source of truth—and when to move quickly from an idea to a real customer outcome.
+title: From Figma to Code and Back Again | Zoha Sobhani
+description: How I decide what to work out in Figma, what to test in code, and how much documentation a team needs.
 permalink: /blog/from-figma-to-code-and-back/
 ---
 <!doctype html>
@@ -29,63 +29,48 @@ permalink: /blog/from-figma-to-code-and-back/
         <a class="back-link" href="../">Back to Blog</a>
         <header class="blog-article-header">
           <p class="blog-kicker">Product Design</p>
-          <h1>From Figma to Code—and Back Again</h1>
-          <p class="blog-page-lead">The strongest product designers know when to build a shared source of truth—and when to move quickly from an idea to a real customer outcome.</p>
-          <p class="blog-article-meta">By Zoha Sobhani · August 26, 2026 · 6 min read</p>
+          <h1>From Figma to Code and Back Again</h1>
+          <p class="blog-page-lead">Some decisions need a shared design file. Others become clearer when you try them in a working page. The useful part is knowing when to move between the two.</p>
+          <p class="blog-article-meta">By Zoha Sobhani · August 26, 2026 · 4 min read</p>
         </header>
         <figure class="blog-article-cover">
           <img src="../../assets/media/blog-figma-to-code-cover.png" alt="Design canvas, code, and product interface connected in a continuous loop">
         </figure>
         <div class="blog-article-content">
-          <p>For years, product design followed a familiar path: research, wireframes, polished Figma files, handoff, and development. That process still matters—especially in organizations where many teams need a shared understanding of what is being built.</p>
-          <p>But not every team needs the same kind of design process. In faster environments, a designer's value is not measured by the number of pages in a file. It is measured by how quickly they can turn uncertainty into a useful customer outcome.</p>
-          <p>The important distinction is not between two kinds of designers. It is between two operating contexts—and the ability to recognize which one the product needs.</p>
+          <p>A layout can look finished in Figma and still need work in the browser. A longer heading changes the balance. A narrow screen exposes a spacing problem. An interaction feels slower than it did in the prototype.</p>
+          <p>Those differences give me a reason to return to the design. I can revise the layout, try it again, and see whether the change helps. The file and the working page each show things the other can't.</p>
+          <p>How much I need to settle in the file first depends on the work and the people building it. A change shared across several teams needs a different approach from an early idea that a small team wants to test.</p>
 
-          <h2>When Figma is the source of truth</h2>
-          <p>In established organizations, a design file is more than a visual deliverable. It is a shared decision space. Product managers, engineers, researchers, QA, marketing, and leadership may all use it to understand the intended experience.</p>
-          <p>In this context, design creates value by reducing ambiguity. The work needs enough structure for a larger group of people to make consistent decisions.</p>
+          <h2>When the team needs a shared reference</h2>
+          <p>In a larger organization, the Figma file may be where product managers, engineers, researchers, and QA agree on what a feature should do. Someone who wasn't in the design discussion still needs to understand the result.</p>
+          <p>That's when I want the file to answer practical questions. What happens when the content is empty? Which component should be used? What should someone see after a failed action?</p>
           <ul>
-            <li>Clear flows, states, and edge cases</li>
-            <li>Reusable components and a reliable design system</li>
-            <li>Prototype behavior that makes interactions understandable</li>
-            <li>Documentation that explains decisions, constraints, and priorities</li>
-            <li>A durable reference that supports implementation and quality assurance</li>
+            <li>Show the steps in the flow, including errors and less common cases.</li>
+            <li>Use shared components where they fit, and explain exceptions.</li>
+            <li>Prototype interactions that are hard to explain with static screens.</li>
+            <li>Write down constraints and decisions that affect implementation.</li>
           </ul>
-          <p>This is not bureaucracy for its own sake. When a product has many dependencies, a clear source of truth protects the customer experience from becoming fragmented along the way.</p>
+          <p>These details give developers and QA something concrete to work from. They also make it easier to spot disagreements before several teams build different answers to the same question.</p>
 
-          <h2>When speed becomes the advantage</h2>
-          <p>In a smaller team, a startup, or a founder-led product, the design context can be very different. The designer may own discovery, interaction design, prototyping, implementation feedback, and iteration after launch.</p>
-          <p>Here, the most important question is often not “Is the documentation complete?” It is “Can we learn whether this solves a real customer problem before our competitors do?”</p>
-          <ul>
-            <li>Build a focused prototype instead of a perfect specification</li>
-            <li>Put an idea in front of customers early</li>
-            <li>Work closely with developers to make the right trade-offs</li>
-            <li>Use real behavior to improve the next version</li>
-            <li>Keep process lightweight until complexity actually requires more structure</li>
-          </ul>
-          <p>Figma is still valuable in this environment. It is simply not always the final destination. It becomes part of a faster loop: idea, prototype, code, feedback, and a better design.</p>
+          <h2>When a working prototype answers the question sooner</h2>
+          <p>On a smaller team, the immediate question may be whether an idea is useful at all. Spending days documenting every state can be premature if a short test would change the direction.</p>
+          <p>I'd start with the smallest prototype that lets someone try the task. Then I'd watch where they hesitate, what they misunderstand, and whether they reach the intended result.</p>
+          <p>Figma may be enough for that test. If the question depends on real content, responsive behavior, or an interaction the prototype can't represent well, a working page may be more useful. I'd choose the tool around the question we need to answer.</p>
+          <p>Keep the developers close to that work. A quick conversation about what's feasible can save time before a design goes too far. After the test, record the decisions the team will need for the next version.</p>
 
-          <blockquote>The best design process is not the most documented one, and it is not the fastest one. It is the one that gives a team enough clarity to build the right thing—and enough speed to learn before the market moves on.</blockquote>
+          <h2>Match the detail to what could go wrong</h2>
+          <p>A payment flow needs clear error handling, constraints, and agreement between the people designing and building it. An early onboarding idea may only need a prototype and a few conversations before the team decides whether to continue.</p>
+          <p>Even a small team needs careful documentation when a mistake would be costly. And a large team can test an uncertain idea before writing a full specification.</p>
+          <p>I find it more useful to ask what another person needs to make the next decision. If a note prevents a repeated question or an implementation mistake, keep it. If nobody can explain how a document will be used, reconsider the work going into it.</p>
 
-          <h2>Documentation and speed are not opposites</h2>
-          <p>It is easy to treat process as a choice between two extremes: document everything or move fast and skip the details. In practice, strong product design means choosing the right level of process for the risk.</p>
-          <p>A payment flow in a telecom product needs clear states, constraints, and cross-functional alignment. A new onboarding idea may only need a working prototype and a few user conversations before the team knows whether it deserves more investment.</p>
-          <p>The problem is not documentation. The problem is creating documentation that does not help a team make a better decision. The same is true of speed: shipping quickly is only useful when it helps a team learn something meaningful.</p>
+          <h2>Bring what you learn back into Figma</h2>
+          <p>A code prototype can reveal a problem that wasn't obvious in the design file. Bring that finding back to the team: show the page, explain what changed, and decide whether the shared design needs updating.</p>
+          <p>Figma describes this exchange as a <a href="https://www.figma.com/blog/what-the-design-to-code-loop-unlocks/" target="_blank" rel="noopener noreferrer">design-to-code loop</a>. In practice, I'd treat it as a reason to keep reviewing the implemented experience instead of considering the design finished at handoff.</p>
+          <p>That doesn't require every designer to write production code. It does require enough understanding to discuss layout, content, and behavior with the people who do.</p>
 
-          <h2>From Figma to code—and back again</h2>
-          <p>The boundary between design and development is becoming less rigid. Designers can use code-based prototypes to test ideas faster, while live product interfaces can return to the design canvas for critique, iteration, and collaborative decision-making.</p>
-          <p>This is not about every designer becoming a developer. It is about designers becoming more connected to what gets built, how it behaves, and whether it creates value after launch. Figma describes this shift as a growing <a href="https://www.figma.com/blog/what-the-design-to-code-loop-unlocks/" target="_blank" rel="noopener noreferrer">design-to-code loop</a>, where the canvas and the running product inform each other instead of operating as separate worlds.</p>
-
-          <h2>The capability to build in both worlds</h2>
-          <p>As AI makes it easier to generate interfaces, code, and visual alternatives, the designer's judgment becomes even more valuable. The real advantage is not producing more screens. It is understanding what deserves to be built, what needs validation, and where a team should slow down or move faster.</p>
-          <ul>
-            <li>Use systems thinking when complexity demands alignment</li>
-            <li>Use product judgment when speed and learning matter most</li>
-            <li>Build enough technical literacy to collaborate closely with engineering</li>
-            <li>Use prototypes to reveal assumptions, not only to present polished solutions</li>
-            <li>Let customer behavior shape the next design decision</li>
-          </ul>
-          <p>The best product designers are not defined by a tool or a handoff process. They are defined by their ability to create clarity when complexity demands it—and momentum when the product needs to learn.</p>
+          <h2>Review the decisions in the product</h2>
+          <p>When a feature is ready to review, walk through an actual task. Try longer content and a smaller screen. Compare the result with the decisions in the file, and talk through any differences with the developer.</p>
+          <p>If the implementation reveals a better answer, update the shared reference. If it exposes a problem, record what needs fixing and who will follow up. Those details matter more than having a file that looks finished while the product behaves differently.</p>
         </div>
       </article>
     </section>
