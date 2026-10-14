@@ -11,6 +11,7 @@ translation_key: design-system-02-audit-before-you-build
 previous_article_title: "کامپوننت داشتیم؛ پس چرا رابط کاربری هنوز ناهماهنگ بود؟"
 previous_article_url: /fa/blog/components-and-consistency/
 next_article_title: "از مقدار رنگ تا تصمیم طراحی"
+next_article_url: /fa/blog/from-color-values-to-design-decisions/
 layout: blog-series
 permalink: /fa/blog/audit-before-you-build/
 english_url: /blog/audit-before-you-build/

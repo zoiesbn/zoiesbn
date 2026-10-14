@@ -10,6 +10,7 @@ translation_key: design-system-02-audit-before-you-build
 previous_article_title: "We Had Components. Why Was the UI Still Inconsistent?"
 previous_article_url: /blog/components-and-consistency/
 next_article_title: "From Color Values to Design Decisions"
+next_article_url: /blog/from-color-values-to-design-decisions/
 layout: blog-series
 permalink: /blog/audit-before-you-build/
 english_url: /blog/audit-before-you-build/
