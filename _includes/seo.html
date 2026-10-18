@@ -11,7 +11,7 @@
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 <meta name="theme-color" content="#ffffff">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="{% if page.lang == 'fa' %}fa_IR{% else %}en_US{% endif %}">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

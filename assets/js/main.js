@@ -1,5 +1,17 @@
 ---
 ---
+const isPersianPage = document.documentElement.lang === 'fa';
+const imageLabels = isPersianPage
+  ? { preview: 'نمایش تصویر', close: 'بستن تصویر', full: 'اندازه اصلی', fit: 'متناسب با صفحه', open: 'بزرگ‌نمایی تصویر', fallback: 'تصویر کیس‌استادی' }
+  : { preview: 'Image preview', close: 'Close image preview', full: 'View full size', fit: 'Fit to screen', open: 'Open image', fallback: 'Case study image' };
+
+document.querySelectorAll('[data-case-language]').forEach(link => {
+  const baseHref = link.getAttribute('href');
+  const keepSection = () => link.setAttribute('href', baseHref + window.location.hash);
+  keepSection();
+  window.addEventListener('hashchange', keepSection);
+});
+
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
 
@@ -86,144 +98,62 @@ if (sections.length && caseLinks.length) {
   sections.forEach(section => sectionObserver.observe(section));
 }
 
-document.querySelectorAll('[data-year]').forEach(node => node.textContent = new Date().getFullYear());
+document.querySelectorAll('[data-year]').forEach(node => node.textContent = new Date().getFullYear().toLocaleString(isPersianPage ? 'fa-IR' : 'en-US', { useGrouping: false }));
 
-const restaurantPreviewCards = [...document.querySelectorAll('.restaurant-case .foundation-gallery .media, .restaurant-case .restaurant-visual-directions .media, .restaurant-case .restaurant-diagram, .restaurant-case .restaurant-core-image, .restaurant-case .restaurant-menu-images .media, .restaurant-case .restaurant-dashboard-images .media')];
-if (restaurantPreviewCards.length) {
+const caseImages = [...document.querySelectorAll('.case-hero img, .case-content img')];
+if (caseImages.length) {
   const dialog = document.createElement('dialog');
-  dialog.className = 'restaurant-image-dialog';
-  dialog.innerHTML = '<button type="button" aria-label="Close image preview">×</button><img alt="">';
+  dialog.className = 'case-image-dialog';
+  dialog.setAttribute('aria-label', imageLabels.preview);
+  dialog.innerHTML = `<div class="case-image-toolbar">
+    <button type="button" data-image-size aria-pressed="false">${imageLabels.full}</button>
+    <button type="button" data-image-close aria-label="${imageLabels.close}" autofocus>×</button>
+  </div><div class="case-image-viewport"><img alt=""></div>`;
   document.body.append(dialog);
 
-  const dialogImage = dialog.querySelector('img');
-  const closeDialog = () => dialog.close();
-  dialog.querySelector('button').addEventListener('click', closeDialog);
+  const previewImage = dialog.querySelector('img');
+  const viewport = dialog.querySelector('.case-image-viewport');
+  const sizeButton = dialog.querySelector('[data-image-size]');
+  let opener;
+  const setFullSize = fullSize => {
+    dialog.classList.toggle('is-full-size', fullSize);
+    sizeButton.setAttribute('aria-pressed', String(fullSize));
+    sizeButton.textContent = fullSize ? imageLabels.fit : imageLabels.full;
+    viewport.scrollTo(0, 0);
+  };
+  sizeButton.addEventListener('click', () => setFullSize(!dialog.classList.contains('is-full-size')));
+  previewImage.addEventListener('click', () => setFullSize(!dialog.classList.contains('is-full-size')));
+  dialog.querySelector('[data-image-close]').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
     const bounds = dialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeDialog();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+  });
+  dialog.addEventListener('close', () => {
+    document.body.classList.remove('case-image-open');
+    setFullSize(false);
+    opener?.focus({ preventScroll: true });
   });
 
-  restaurantPreviewCards.forEach(card => {
-    const image = card.querySelector('img');
-    if (!image) return;
-    card.tabIndex = 0;
-    card.setAttribute('role', 'button');
-    card.setAttribute('aria-label', `Open image: ${image.alt}`);
-    const openDialog = () => {
-      dialogImage.src = image.currentSrc || image.src;
-      dialogImage.alt = image.alt;
-      dialog.showModal();
-    };
-    card.addEventListener('click', openDialog);
-    card.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        openDialog();
-      }
-    });
-  });
-}
-
-const mrBoxPreviewCards = [...document.querySelectorAll('.mrbox-case .case-content .media')];
-if (mrBoxPreviewCards.length) {
-  const dialog = document.createElement('dialog');
-  dialog.className = 'mrbox-image-dialog';
-  dialog.innerHTML = '<button type="button" aria-label="Close image preview">×</button><img alt="">';
-  document.body.append(dialog);
-
-  const dialogImage = dialog.querySelector('img');
-  const closeDialog = () => dialog.close();
-  dialog.querySelector('button').addEventListener('click', closeDialog);
-  dialog.addEventListener('click', event => {
-    const bounds = dialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeDialog();
-  });
-
-  mrBoxPreviewCards.forEach(card => {
-    const image = card.querySelector('img');
-    if (!image) return;
-    card.tabIndex = 0;
-    card.setAttribute('role', 'button');
-    card.setAttribute('aria-label', `Open image: ${image.alt}`);
-    const openDialog = () => {
-      dialogImage.src = image.currentSrc || image.src;
-      dialogImage.alt = image.alt;
-      dialog.showModal();
-    };
-    card.addEventListener('click', openDialog);
-    card.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        openDialog();
-      }
-    });
-  });
-}
-
-const rightelWebsitePreviewCards = [...document.querySelectorAll('.rightelwebsite-case .case-content .media')].filter(card => card.querySelector('img'));
-if (rightelWebsitePreviewCards.length) {
-  const dialog = document.createElement('dialog');
-  dialog.className = 'rightelwebsite-image-dialog';
-  dialog.innerHTML = '<button type="button" aria-label="Close image preview">×</button><img alt="">';
-  document.body.append(dialog);
-
-  const dialogImage = dialog.querySelector('img');
-  const closeDialog = () => dialog.close();
-  dialog.querySelector('button').addEventListener('click', closeDialog);
-  dialog.addEventListener('click', event => {
-    const bounds = dialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeDialog();
-  });
-
-  rightelWebsitePreviewCards.forEach(card => {
-    const image = card.querySelector('img');
-    card.tabIndex = 0;
-    card.setAttribute('role', 'button');
-    card.setAttribute('aria-label', `Open image: ${image.alt}`);
-    const openDialog = () => {
-      dialogImage.src = image.currentSrc || image.src;
-      dialogImage.alt = image.alt;
-      dialog.showModal();
-    };
-    card.addEventListener('click', openDialog);
-    card.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        openDialog();
-      }
-    });
-  });
-}
-
-const designSystemPreviewImages = [...document.querySelectorAll('.design-system-case .case-content img')];
-if (designSystemPreviewImages.length) {
-  const dialog = document.createElement('dialog');
-  dialog.className = 'design-system-image-dialog';
-  dialog.innerHTML = '<button type="button" aria-label="Close image preview">×</button><img alt="">';
-  document.body.append(dialog);
-
-  const dialogImage = dialog.querySelector('img');
-  const closeDialog = () => dialog.close();
-  dialog.querySelector('button').addEventListener('click', closeDialog);
-  dialog.addEventListener('click', event => {
-    const bounds = dialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeDialog();
-  });
-
-  designSystemPreviewImages.forEach(image => {
+  caseImages.forEach(image => {
     image.tabIndex = 0;
     image.setAttribute('role', 'button');
-    image.setAttribute('aria-label', `Open image: ${image.alt || 'Rightel design-system visual'}`);
-    const openDialog = () => {
-      dialogImage.src = image.currentSrc || image.src;
-      dialogImage.alt = image.alt;
+    image.setAttribute('aria-haspopup', 'dialog');
+    image.setAttribute('aria-label', `${imageLabels.open}: ${image.alt || imageLabels.fallback}`);
+    const openImage = () => {
+      if (dialog.open) return;
+      opener = image;
+      previewImage.src = image.currentSrc || image.src;
+      previewImage.alt = image.alt;
+      setFullSize(false);
       dialog.showModal();
+      document.body.classList.add('case-image-open');
     };
-    image.addEventListener('click', openDialog);
+    image.addEventListener('click', openImage);
     image.addEventListener('keydown', event => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        openDialog();
+        openImage();
       }
     });
   });
@@ -278,13 +208,22 @@ document.querySelectorAll('[data-document-slider]').forEach(slider => {
 const caseArticle = document.querySelector('.case-content');
 if (caseArticle) {
   const current = location.pathname.split('/').filter(Boolean).at(-1);
+  const projectRoot = isPersianPage ? '../../' : '../';
+  const persianProjects = {
+    myrightel: { title: 'بازطراحی رایتل من', type: 'طراحی اپ و وب' },
+    fsa: { title: 'بازطراحی FakeStore API', type: 'طراحی وب' },
+    'design-system': { title: 'دیزاین‌سیستم رایتل', type: 'دیزاین‌سیستم' },
+    restaurant: { title: 'داشبورد مدیریت رستوران', type: 'طراحی اپلیکیشن' },
+    'mr.box': { title: 'اپلیکیشن ارسال مرسوله مسترباکس', type: 'طراحی اپلیکیشن' },
+    rightelwebsite: { title: 'وب‌سایت رایتل و خرید سیم‌کارت', type: 'طراحی وب' }
+  };
   const cards = projectCatalog.filter(project => project.slug !== current).sort((a, b) => a.order - b.order).slice(0, 4);
   const section = document.createElement('section');
   section.className = 'other-projects';
-  section.innerHTML = `<div class="container"><h2 class="section-heading">Other Projects</h2><div class="project-grid">${cards.map(project => `
-    <a class="project-card" href="../${project.slug}/">
-      <div class="project-image"><img src="..${project.image}" alt="${project.alt}" loading="lazy"></div>
-      <div class="project-copy"><p class="eyebrow">${project.type}</p><h3>${project.title}</h3></div>
+  section.innerHTML = `<div class="container"><h2 class="section-heading">${isPersianPage ? 'پروژه‌های دیگر' : 'Other Projects'}</h2><div class="project-grid">${cards.map(project => `
+    <a class="project-card" href="${projectRoot}${project.slug}/">
+      <div class="project-image"><img src="${projectRoot}${project.image.replace(/^\//, '')}" alt="${isPersianPage ? persianProjects[project.slug]?.title || project.alt : project.alt}" loading="lazy"></div>
+      <div class="project-copy"><p class="eyebrow">${isPersianPage ? persianProjects[project.slug]?.type || project.type : project.type}</p><h3>${isPersianPage ? persianProjects[project.slug]?.title || project.title : project.title}</h3></div>
     </a>`).join('')}</div></div>`;
   document.querySelector('main').append(section);
 }

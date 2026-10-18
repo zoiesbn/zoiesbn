@@ -426,18 +426,24 @@ button { font: inherit; }
 .restaurant-case .restaurant-dashboard-images > .media { width: min(350px, 100%); margin: 0 auto 16px; }
 .restaurant-case .restaurant-dashboard-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .restaurant-case .restaurant-dashboard-details .media { margin: 0; }
-.restaurant-image-dialog, .mrbox-image-dialog, .rightelwebsite-image-dialog { width: min(1100px, calc(100vw - 32px)); max-width: none; max-height: calc(100vh - 32px); padding: 14px; border: 1px solid #D4D2D2; border-radius: 14px; background: #fff; box-shadow: 0 24px 70px rgba(20, 16, 22, .28); }
-.restaurant-image-dialog::backdrop, .mrbox-image-dialog::backdrop, .rightelwebsite-image-dialog::backdrop { background: rgba(18, 16, 20, .6); backdrop-filter: blur(3px); }
-.restaurant-image-dialog img, .mrbox-image-dialog img, .rightelwebsite-image-dialog img { display: block; width: auto; max-width: 100%; max-height: calc(100vh - 90px); margin: 0 auto; object-fit: contain; }
-.restaurant-image-dialog button, .mrbox-image-dialog button, .rightelwebsite-image-dialog button { position: absolute; top: 22px; right: 22px; display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid #D4D2D2; border-radius: 50%; background: #fff; color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; }
-.restaurant-image-dialog button:hover, .mrbox-image-dialog button:hover, .rightelwebsite-image-dialog button:hover { background: #f5f4f6; }
-.design-system-image-dialog { width: min(1100px, calc(100vw - 32px)); max-width: none; max-height: calc(100vh - 32px); padding: 14px; border: 1px solid #D4D2D2; border-radius: 14px; background: #fff; box-shadow: 0 24px 70px rgba(20, 16, 22, .28); }
-.design-system-image-dialog::backdrop { background: rgba(18, 16, 20, .6); backdrop-filter: blur(3px); }
-.design-system-image-dialog img { display: block; width: auto; max-width: 100%; max-height: calc(100vh - 90px); margin: 0 auto; object-fit: contain; }
-.design-system-image-dialog button { position: absolute; top: 22px; right: 22px; display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid #D4D2D2; border-radius: 50%; background: #fff; color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; }
-.design-system-image-dialog button:hover { background: #f5f4f6; }
+.case-hero img, .case-content img { cursor: zoom-in; }
+.case-hero img:focus-visible, .case-content img:focus-visible { outline: 3px solid #9b2077; outline-offset: 4px; }
+body.case-image-open { overflow: hidden; }
+.case-image-dialog { width: min(1440px, calc(100vw - 32px)); max-width: none; max-height: calc(100dvh - 32px); margin: auto; padding: 12px; border: 1px solid #d4d2d2; border-radius: 14px; background: #fff; box-shadow: 0 24px 70px rgba(20, 16, 22, .28); }
+.case-image-dialog::backdrop { background: rgba(18, 16, 20, .8); backdrop-filter: blur(3px); }
+.case-image-toolbar { display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-bottom: 10px; }
+.case-image-toolbar button { min-height: 44px; min-width: 44px; padding: 8px 14px; border: 1px solid #d4d2d2; border-radius: 8px; background: #fff; color: #14151d; font: inherit; cursor: pointer; }
+.case-image-toolbar [data-image-close] { padding: 0; font-size: 28px; line-height: 1; }
+.case-image-toolbar button:hover { background: #f5f4f6; }
+.case-image-toolbar button:focus-visible { outline: 3px solid #9b2077; outline-offset: 2px; }
+.case-image-viewport { max-height: calc(100dvh - 114px); overflow: auto; overscroll-behavior: contain; }
+.case-image-viewport img { display: block; width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - 114px); margin: auto; object-fit: contain; cursor: zoom-in; }
+.case-image-dialog.is-full-size .case-image-viewport img { max-width: none; max-height: none; cursor: zoom-out; }
 .rightel-case .rightel-comparison-media .media img { height: clamp(260px, 30vw, 360px); object-fit: cover; }
 .rightel-case .rightel-comparison-media figcaption { padding: 10px 12px; color: #4f4f58; font-size: 13px; line-height: 1.4; }
+.rightel-case .rightel-package-image { width: min(760px, 100%); margin: 24px auto; }
+.rightel-case .rightel-package-image img { display: block; width: 100%; height: auto; max-height: none; object-fit: contain; }
+.rightel-case .rightel-package-image figcaption { padding: 10px 12px; color: #4f4f58; font-size: 13px; line-height: 1.4; }
 .rightel-case .rightel-payment-output { width: min(560px, 100%); margin: 16px auto 0; }
 .rightel-case .rightel-payment-output figcaption { padding: 10px 12px; color: #4f4f58; font-size: 13px; line-height: 1.4; }
 .rightel-case .rightel-tradeoff-image { width: min(560px, 100%); margin: 20px auto; }
@@ -902,3 +908,30 @@ button { font: inherit; }
   .blog-index-panel .blog-index-card { grid-template-columns: 1fr; gap: 22px; padding: 25px 0; }
   .blog-index-panel-bottom { align-items: start; flex-direction: column; }
 }
+
+/* Bilingual My Rightel case study. */
+@font-face { font-family: "IRANSans"; src: url("../fonts/IRANSansWeb.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "IRANSans"; src: url("../fonts/IRANSansWeb_Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "IRANSans"; src: url("../fonts/IRANSansWeb_Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+.case-page-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 42px; }
+.case-page-toolbar .back-link { margin: 0; }
+.case-language-switch { display: flex; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: #fff; direction: ltr; }
+.case-language-switch a { display: grid; place-items: center; min-height: 44px; padding: 6px 18px; border-radius: 999px; font: 500 14px/1.6 "IRANSans", Tahoma, Arial, sans-serif; }
+.case-language-switch a[aria-current="page"] { background: #9b2077; color: #fff; }
+.case-language-switch a:focus-visible { outline: 3px solid #9b2077; outline-offset: 3px; }
+.rightel-case:lang(fa) { font-family: "IRANSans", Tahoma, Arial, sans-serif; }
+.rightel-case:lang(fa) :is(h1, h2, h3, h4, p, span, strong, small, em, a, li, button) { letter-spacing: normal; }
+.rightel-case:lang(fa) .case-title { font-size: clamp(2.3rem, 6vw, 4.5rem); line-height: 1.65; }
+.rightel-case:lang(fa) .case-lead { line-height: 2; }
+.rightel-case:lang(fa) .case-content :is(p, li) { line-height: 2.1; }
+.rightel-case:lang(fa) :is(h2, h3, h4) { line-height: 1.8; }
+.rightel-case:lang(fa) :is(.case-meta, .rightel-snapshot-grid, .case-nav, figcaption, .case-section-kicker, .rightel-design-system-link) { line-height: 1.9; }
+.rightel-case:lang(fa) .case-content ul { padding-left: 0; padding-right: 22px; }
+.rightel-case:lang(fa) .rightel-evidence-note { border-left: 0; border-right: 4px solid #d6299f; border-radius: 12px 0 0 12px; }
+.rightel-case:lang(fa) .back-link::before { content: "→"; }
+.rightel-case:lang(fa) .rightel-design-system-link em { font-style: normal; }
+.rightel-case:lang(fa) .footer a[dir="ltr"] { display: inline-block; }
+.rightel-case:lang(fa) .footer h2 { font-size: clamp(1.7rem, 4vw, 3rem); }
+.rightel-case:lang(fa) :is(.project-copy, .case-meta, .rightel-snapshot-grid) { text-align: start; }
+.rightel-case:lang(fa) .case-image-viewport { direction: ltr; }
+.rightel-case :is(#package-selection, #payment-experience) { scroll-margin-top: 100px; }
